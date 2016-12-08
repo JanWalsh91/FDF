@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 16:04:54 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/08 17:20:36 by jwalsh           ###   ########.fr       */
+/*   Created: 2016/12/07 15:37:37 by jwalsh            #+#    #+#             */
+/*   Updated: 2016/12/07 15:38:53 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+/*
+** Puts the error message on the error output and returns 0.
+*/
 
-int	main(int ac, char **av)
+#include "libft.h"
+
+int	ft_error(char *error_msg)
 {
-	//char *input;
-
-	if (ac != 2)
-		return (display_usage());
-	else
-	{
-		fdf(av[1]);
-	}
-	return (0);
-}
-
-int	display_usage(void)
-{
-	ft_putendl(USAGE);
-	return (0);
-}
-
-int	error(void)
-{
-	ft_putendl_fd(strerror(errno), 2);
+	ft_putendl_fd(error_msg, 2);
 	return (0);
 }

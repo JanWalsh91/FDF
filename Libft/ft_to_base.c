@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_to_base.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 16:04:54 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/08 17:20:36 by jwalsh           ###   ########.fr       */
+/*   Created: 2016/12/01 11:09:15 by jwalsh            #+#    #+#             */
+/*   Updated: 2016/12/01 11:31:56 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+/*
+** UNTESTED
+*/
 
-int	main(int ac, char **av)
+#include "libft.h"
+
+char	*ft_to_base(int n, int b)
 {
-	//char *input;
+	int		t;
+	char	*result;
 
-	if (ac != 2)
-		return (display_usage());
-	else
+	result = ft_strnew(1);
+	if (b < 2)
+		return (0);
+	t = n;
+	while (t != 0)
 	{
-		fdf(av[1]);
+		result = ft_straddcharfree(result, ((n % b) + '0'));
+		n = n / b;
 	}
-	return (0);
-}
-
-int	display_usage(void)
-{
-	ft_putendl(USAGE);
-	return (0);
-}
-
-int	error(void)
-{
-	ft_putendl_fd(strerror(errno), 2);
-	return (0);
+	return(ft_strrev(result));
 }

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:24:15 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/11/30 18:41:46 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/07 15:39:29 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);
 int				ft_isprint(int c);
+int				ft_ispunct(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			*ft_memalloc(size_t size);
@@ -89,5 +90,11 @@ char			*ft_strjoinfree(char const *s1, char const *s2, char c);
 int				ft_clamp(int min, int max, int i);
 int				get_next_line(const int fd, char **line);
 int				*ft_range(int start, int end);
+long			ft_power(int n, int p);
+int				ft_abs(int n);
+char			*ft_straddchar(char const *s, char c);
+char			*ft_straddcharfree(char const *s, char c);
+char			*ft_to_base(int n, int b);
+int				ft_error(char *error_msg);
 
 #endif

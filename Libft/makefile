@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/11/30 18:41:21 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/07 15:39:42 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC = ft_memset.c \
 	ft_isalnum.c \
 	ft_isascii.c \
 	ft_isprint.c \
+	ft_ispunct.c \
 	ft_toupper.c \
 	ft_tolower.c \
 	ft_memalloc.c \
@@ -74,7 +75,13 @@ SRC = ft_memset.c \
 	ft_strjoinfree.c \
 	ft_clamp.c \
 	get_next_line.c \
-	ft_range.c
+	ft_range.c \
+	ft_power.c \
+	ft_abs.c \
+	ft_straddchar.c \
+	ft_straddcharfree.c \
+	ft_to_base.c \
+	ft_error.c
 
 NAME = libft.a
 
@@ -116,14 +123,14 @@ compile_msg:
 
 clean:
 	@rm -f $(OBJ)
-	@$(ECHO) "$(C_CYAN)Clean done.$(C_NONE)"
+	@$(ECHO) "$(C_CYAN)Libft clean done.$(C_NONE)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(ECHO) "$(C_CYAN)Fclean done.$(C_NONE)"
+	@$(ECHO) "$(C_CYAN)Libft fclean done.$(C_NONE)"
 
 re: fclean
 	@$(MAKE) all
 
 .PHONY: clean fclean
-	@$(ECHO) "$(C_CYAN).PHONY done.$(C_NONE)"
+	@$(ECHO) "$(C_CYAN)Libft .PHONY done.$(C_NONE)"

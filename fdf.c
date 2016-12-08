@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:08:38 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/06 16:09:04 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/08 17:59:16 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,13 @@
 
 void	fdf(char *input)
 {
+	t_pt	***pts;
+	t_max	max;
+	char	*s;
+
+	if (!read_file(input, &s, &max))
+		return ;
+	if (!(set_data(&pts, s, max)))
+			return ;
 	
 }

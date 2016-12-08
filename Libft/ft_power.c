@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 16:04:54 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/08 17:20:36 by jwalsh           ###   ########.fr       */
+/*   Created: 2016/12/01 10:51:34 by jwalsh            #+#    #+#             */
+/*   Updated: 2016/12/01 11:28:12 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+/*
+** UNTESTED
+** Returns n to the power of p.
+*/
 
-int	main(int ac, char **av)
+#include "libft.h"
+
+long	ft_power(int n, int p)
 {
-	//char *input;
+	long n1;
 
-	if (ac != 2)
-		return (display_usage());
-	else
+	n1 = n;
+	if (!p || !n || p < 0)
+		return (0);
+	if (p == 0)
+		return (1);
+	while (p != 1)
 	{
-		fdf(av[1]);
+		n1 *= n;
+		p--;
 	}
-	return (0);
-}
-
-int	display_usage(void)
-{
-	ft_putendl(USAGE);
-	return (0);
-}
-
-int	error(void)
-{
-	ft_putendl_fd(strerror(errno), 2);
-	return (0);
+	return (n1);
 }
