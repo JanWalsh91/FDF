@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:04:54 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/08 17:20:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/13 13:18:08 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int ac, char **av)
 {
-	//char *input;
-
 	if (ac != 2)
 		return (display_usage());
 	else

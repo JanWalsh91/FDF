@@ -6,18 +6,23 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/08 17:44:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 13:33:03 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 /*
-** Reads the input with get_next_line and checks validity of lines and points
-** while updating the array of point structures.
+** Reads the input with get_next_line and checks validity of lines and points.
+** Puts the contents of the file in char *data->s.
+** Determines ref.x and ref.y for allocating memory later on.
 */
 
-int	read_file(char *input, char **s, t_max *max)
+/*
+** Redo read_file without get_next_line.
+*/
+
+int	read_file(char *input, t_data *data)
 {
 	int		fd;
 	char	*line;
@@ -27,70 +32,51 @@ int	read_file(char *input, char **s, t_max *max)
 	if (!(fd = open(input, O_RDONLY)))
 		return (error());
 	line = NULL;
-	set_t_max(max);
+	set_default_values(data);
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
-		printf("done with GNL\n");
-		if (!(update_max_pts(line, max)))
+		if (!(check_line(line, data)))
 			return (0);
-		printf("done updating pts\n");
-		if (!s)
-		{
-			printf("ft_strdup: %s\n", ft_strdup(line));
-			*s = ft_strdup(line);
-		}
+		if (!data->s)
+			data->s = ft_strdup(line);
 		else
 		{
-			if (!(*s = ft_strjoin(*s, "\n")))
+			if (!(data->s = ft_strjoin(data->s, "\n")))
 				return (error());
-			if (!(*s = ft_strjoinfree(*s, line, 'l')))
+			if (!(data->s = ft_strjoinfree(data->s, line, 'l')))
 				return (error());
-			printf("current string: %s\n", *s);
 		}
 	}
-	if (ret == -1)
-		return (error());
-	printf("Done reading file\n");
-	return (1);
-}
-
-void	set_t_max(t_max *max)
-{
-	max->x = 0;
-	max->y = 0;
-	max->z = 0;
+	return ((ret == -1) ? error() : 1);
 }
 
 /*
-** Checks the length of the lines to find the maximum length.
-** Also increments the number of lines.
+** Checks char values.
 */
 
-int	update_max_pts(char *line, t_max *max)
+int	check_line(char *line, t_data *d)
 {
 	int	i;
-	int	height;
 	int	pt_count;
 
-	printf("update_max_pts\n");
+	printf("check_line\n");
 	i = 0;
 	pt_count = 0;
 	while (line && line[i])
 	{
 		if (!((ft_isdigit(line[i])) ||
-			('A' <= line[i] && line[i] <= 'F') ||
-			('a' <= line[i] && line[i] <= 'f') ||
-			(line[i] == ',') || (line[i] == 'x') || line[i] == 32))
-					return (ft_error("Invalid character"));
-		(line[i] == ',') ? g_user_set_colors = 1 : 0;
+					('A' <= line[i] && line[i] <= 'F') ||
+					('a' <= line[i] && line[i] <= 'f') ||
+					(line[i] == ',') ||
+					(line[i] == 'x') ||
+					line[i] == 32))
+			return (ft_error("Invalid character"));
+		(line[i] == ',') ? d->color_input = 1 : 0;
 		if (ft_isdigit(line[i]) && ((i == 0) || (line[i - 1] == 32)))
-		{
-			(max->z < (height = ft_atoi(line + i))) ? max->z = height : 0;
 			pt_count++;
-		}
 		i++;
 	}
-	(max->x < pt_count) ? max->x = pt_count : 0;
-	max->y++;
+	d->ref.y++;
+	d->ref.x < pt_count ? d->ref.x = pt_count : 0;
 	return (1);
 }

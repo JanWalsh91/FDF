@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:03:18 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/08 18:00:02 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/13 13:04:26 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	draw(void *mlx, void *win)
 	while (y < 150)
 	{
 		x = 50;
-		while (x < 150)
+		while (x < 60)
 		{
 			mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF); //weight/transparency, RGB
 			x++;
@@ -73,12 +73,29 @@ int	expose_hook(t_env *e)
 int	main(void)
 {
 	t_env	e;
+	void	*img_ptr;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	char	*image;
+
+	int	x = 500;
+	int	y = 100;
+	int color = 0x00FF00FF;
+	int *tmp;
 
 	e.mlx = mlx_init(); // returns a void * which is a pointer used to identify 
 					//the connection with the graphic server. Used for each
 					//minilix function
 	e.win = mlx_new_window(e.mlx, 2400, 1300, "mlx 42"); // returns an identifier to
 													// that window
+	img_ptr = mlx_new_image(e.mlx, 2400, 1300);
+	image = mlx_get_data_addr(img_ptr, &bpp, &size_line, &endian);
+	printf("image: \n%s\n", image);
+	printf("bpp: %i\n, size_line: %i\n, endian: %i\n", bpp, size_line, endian);
+	tmp = (int *)(image + (y*size_line + x*bpp/8));
+	*tmp = color;
+	mlx_put_image_to_window(e.mlx, e.win, img_ptr, 0, 0);
 	draw(e.mlx, e.win);
 	mlx_key_hook(e.win, key_hook, 0);
 	mlx_expose_hook(e.win, &expose_hook, &e);
