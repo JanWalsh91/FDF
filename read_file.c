@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 13:33:03 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 15:57:43 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	read_file(char *input, t_data *data)
 				return (error());
 		}
 	}
+	if (!data->s)
+		return (ft_error("file empty"));
 	return ((ret == -1) ? error() : 1);
 }
 
@@ -77,6 +79,8 @@ int	check_line(char *line, t_data *d)
 		i++;
 	}
 	d->ref.y++;
-	d->ref.x < pt_count ? d->ref.x = pt_count : 0;
-	return (1);
+	(!d->ref.x) ? d->ref.x = pt_count : 0;
+	//d->ref.x != pt_count ? d->ref.x = pt_count : 0;
+	return ((d->ref.x != pt_count || !pt_count) ?
+			ft_error("line count incorrect") : 1);
 }

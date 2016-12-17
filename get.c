@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 12:40:37 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 13:31:10 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 16:18:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	get_d2(t_data *d)
 		x = -1;
 		while (++x < d->ref.x)
 		{
-			//printf("checking value at: (%i, %i)(%f, %f)\n", y, x, d->pts_2d[y][x].x, d->pts_2d[y][x].y);
 			d->d2.max.x < d->pts_2d[y][x].x ?
 				d->d2.max.x = d->pts_2d[y][x].x : 0;
 			d->d2.max.y < d->pts_2d[y][x].y ?

@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/16 16:35:59 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/17 16:10:24 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAME = main.c \
 		   reset.c \
 		   get.c \
 		   mlx_fnct1.c \
+		   draw.c \
 		   debugging.c
 
 NAME = fdf

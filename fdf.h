@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 12:57:04 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 16:20:07 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 #define MAX_WIN_W 2400
 #define MAX_WIN_H 1300
 #define MAX_UNIT_SIZE 50
-#define FRAME_WIDTH 1 // will be multiplied by unit_size
+#define FRAME_WIDTH 1
 #define FLT_MIN 1.175494e-38
 #define FLT_MAX 3.402823e+38
 
