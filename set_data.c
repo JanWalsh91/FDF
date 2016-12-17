@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 14:23:29 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 15:11:17 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	set_pt(t_data *data, t_pt2 *i)
 	data->pts_3d[i->y][i->x].y = i->y;
 	data->pts_3d[i->y][i->x].z = ft_atoi(data->s);
 	while (ft_isdigit(*data->s))
-		data->s++;
+		++data->s;
 	if (*data->s == ',')
 	{
 		if (0 > (data->colors[0][i->y][i->x] = get_color(&data->s)))
@@ -68,7 +68,7 @@ int	set_pt(t_data *data, t_pt2 *i)
 		printf("Added color at (y, x) (%i, %i)\n", i->y, i->x);
 	}
 	while (*data->s == 32 || *data->s == '\n')
-		data->s++;
+		++data->s;
 	increment_index(&i->x, &i->y, data);
 	return (1);
 }
@@ -93,16 +93,14 @@ int	get_color(char **s)
 		if (!((ft_isdigit((*s)[i])) || ('a' <= (*s)[i] && (*s)[i] <= 'f') ||
 			('A' <= (*s)[i] && (*s)[i] <= 'F')))
 			return (ft_error("Color incorrectly formatted"));
-		i++;
+		++i;
 	}
 	if (!(tmp = (char *)malloc(sizeof(char) * (i + 1))))
 		return (error());
 	tmp[i] = '\0';
 	i = 0;
 	while (**s && **s != ' ' && **s != '\n')
-	{
 		tmp[i++] = *((*s)++);
-	}
 	return (get_hex(tmp, i));
 }
 
@@ -115,17 +113,15 @@ int	get_hex(char *tmp, int length)
 	int	result;
 	int	i;
 
-	printf("get_hex: %s\n", tmp);
+	//printf("get_hex: %s\n", tmp);
 	i = 0;
 	result = 0;
 	while (i < length)
 	{
-		//printf("char: %c\n", tmp[i]);
 		result += get_hex_value(tmp[i++]);
 		(i < length) ? result *= 16 : 0;
-		//printf("update result: %i\n", result);
 	}
-	printf("new color: %i\n", result);
+	//printf("new color: %i\n", result);
 	return (result);
 }
 
@@ -143,7 +139,6 @@ int	get_hex_value(char c)
 		i = c -'A' + 10;
 	else
 		i = 0;
-	//printf("hex_value: %i\n", i);
 	return (i);
 }
 
@@ -160,5 +155,4 @@ void	increment_index(int *x, int *y, t_data *data)
 		*x = 0;
 		(*y)++;
 	}
-	//printf("coords incremented to (y, x) (%i, %i)\n", *y, *x);
 }

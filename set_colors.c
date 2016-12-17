@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/16 12:28:08 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 13:24:43 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 14:57:35 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,11 @@ int		set_colors(t_data *d)
 				return (0);
 			p.x = 0;
 			while (p.x < d->ref.x)
-				d->colors[i][p.y][p.x++] = 0;
+				d->colors[i][p.y][p.x++] = DARK_GRAY;
 			++p.y;
 		}
 		++i;
 	}
-	//set_palettes(d);
 	return (1);
 }
 
@@ -82,28 +81,20 @@ void static set_palette(t_data *d, int num, int *p)
 
 	i.y = 0;
 	height = d->d3.max.z - d->d3.min.z;
-	printf("height: %f\n", height);
 	while (i.y < d->ref.y)
 	{
-		printf("check1\n");
 		i.x = 0;
 		while (i.x < d->ref.x)
 		{
-			printf("-");
-			printf("check at (y, x)(%i, %i): %.2f  ", i.y, i.x, d->pts_3d[i.y][i.x].z);
-			printf("-");
 			if (d->pts_3d[i.y][i.x].z < (height / 4))
-			{
 				d->colors[num][i.y][i.x] = p[0];
-				printf("check\n");
-			}
 			else if (d->pts_3d[i.y][i.x].z <= (2 * height / 4))
 				d->colors[num][i.y][i.x] = p[1];
 			else if (d->pts_3d[i.y][i.x].z <= (3 * height / 4))
 				d->colors[num][i.y][i.x] = p[2];
 			else if (d->pts_3d[i.y][i.x].z <= (height))
 				d->colors[num][i.y][i.x] = p[3];
-			printf("added color: %i\n", d->colors[num][i.y][i.x]);
+			//printf("added color: %i\n", d->colors[num][i.y][i.x]);
 			++i.x;
 		}
 		++i.y;
