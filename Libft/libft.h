@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:24:15 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/07 15:39:29 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/15 17:47:21 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ char			*ft_straddchar(char const *s, char c);
 char			*ft_straddcharfree(char const *s, char c);
 char			*ft_to_base(int n, int b);
 int				ft_error(char *error_msg);
+int				ft_round(float i);
 
 #endif
