@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:17:49 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 13:25:48 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 17:00:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ int		init_pts_2d(t_data *data)
 		}
 		y++;
 	}
-	print_pts_2d(*data);
 	get_d2(data);
 	return (1);
 }
 
 /*
-** Updates the 2D coordinates based.
+** Updates the 2D coordinates.
 */
 
 void	update_2d_coords(t_data *data)
@@ -65,7 +64,6 @@ void	update_2d_coords(t_data *data)
 		}
 		y++;
 	}
-	print_pts_2d(*data);
 }
 
 /*
@@ -75,7 +73,6 @@ void	update_2d_coords(t_data *data)
 
 void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y)
 {
-	//printf	("\nget_2d_coords of pt (%i, %i) of coord (%f, %f, %f) center: (%f, %f)\n", y, x, d->pts_3d[y][x].x, d->pts_3d[y][x].y, d->pts_3d[y][x].z, d->center.x, d->center.y);
 	p->x = (d->pts_3d[y][x].x + d->pts_3d[y][x].y + d->center.x);
 	p->y = (((d->pts_3d[y][x].y - d->pts_3d[y][x].x) * 0.5) -
 		d->pts_3d[y][x].z + d->center.y);

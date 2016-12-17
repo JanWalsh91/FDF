@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 12:40:37 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 16:18:10 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 16:55:09 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,21 +103,4 @@ t_incr	get_incr(t_vec2 p1, t_vec2 p2, int c1, int c2)
 	get_color_incr(&incr, c1, c2, incr.steps);
 	printf("step: %.2f, incr.x: %.2f, incr.y: %.2f\n", incr.steps, incr.x, incr.y);
 	return (incr);
-}
-
-void	get_color_incr(t_incr *incr, int c1, int c2, float steps)
-{
-	printf("get_color_incr: c1: %x c2: %x\n", c1, c2);
-	int		mask;
-
-	mask = 0xFF;
-	incr->b = ((c2 & mask) - (c1 & mask)) / steps;
-	mask = mask << 8;
-	incr->g = (((c2 & mask) - (c1 & mask)) / steps) / 0x100;
-	mask = mask << 8;
-	incr->r = (((c2 & mask) - (c1 & mask)) / steps) / 0x10000;
-	printf("RGB: %f, %f. %f\n", incr->r, incr->g, incr->b);
-
-	//printf("RGB: %f, %f. %f\n", r_incr, g_incr, b_incr);
-	//return (b_incr + g_incr + r_incr);
 }

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 15:57:43 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 17:37:57 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@
 ** Determines ref.x and ref.y for allocating memory later on.
 */
 
-/*
-** Redo read_file without get_next_line.
-*/
+static int	check_line(char *line, t_data *d);
 
-int	read_file(char *input, t_data *data)
+int	read_file(char *input, t_data *d)
 {
 	int		fd;
 	char	*line;
@@ -32,22 +30,21 @@ int	read_file(char *input, t_data *data)
 	if (!(fd = open(input, O_RDONLY)))
 		return (error());
 	line = NULL;
-	set_default_values(data);
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
-		if (!(check_line(line, data)))
+		if (!(check_line(line, d)))
 			return (0);
-		if (!data->s)
-			data->s = ft_strdup(line);
+		if (!d->s)
+			d->s = ft_strdup(line);
 		else
 		{
-			if (!(data->s = ft_strjoin(data->s, "\n")))
+			if (!(d->s = ft_strjoin(d->s, "\n")))
 				return (error());
-			if (!(data->s = ft_strjoinfree(data->s, line, 'l')))
+			if (!(d->s = ft_strjoinfree(d->s, line, 'l')))
 				return (error());
 		}
 	}
-	if (!data->s)
+	if (!d->s)
 		return (ft_error("file empty"));
 	return ((ret == -1) ? error() : 1);
 }
@@ -56,7 +53,7 @@ int	read_file(char *input, t_data *data)
 ** Checks char values.
 */
 
-int	check_line(char *line, t_data *d)
+static int	check_line(char *line, t_data *d)
 {
 	int	i;
 	int	pt_count;
@@ -80,7 +77,6 @@ int	check_line(char *line, t_data *d)
 	}
 	d->ref.y++;
 	(!d->ref.x) ? d->ref.x = pt_count : 0;
-	//d->ref.x != pt_count ? d->ref.x = pt_count : 0;
 	return ((d->ref.x != pt_count || !pt_count) ?
 			ft_error("line count incorrect") : 1);
 }

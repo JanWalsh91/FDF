@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:08:38 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 13:25:31 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 17:34:35 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 
 void	fdf(char *input)
 {
-	t_data data;
+	t_data	data;
 	t_env	e;
 
+	set_default_values(&data);
 	if (!read_file(input, &data))
 		return ;
-	if (!(set_data(&data)))
+	if (!(init_colors(&data)) || !(init_set_data(&data)))
 			return ;
 	e.mlx = mlx_init();
 	init_window(&data, &e, input);

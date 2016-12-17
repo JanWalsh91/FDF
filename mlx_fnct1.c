@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 17:22:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 16:13:21 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/17 18:05:20 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		init_window(t_data *data, t_env *e, char *input)
 		return (0);
 	get_init_win_size(e, data);
 	get_d3(data);
-	set_palettes(data);
+	init_set_palettes(data);
 	get_center(data);
 	update_2d_coords(data);
 	printf("mlx_new_image with: (w, h) : (%i, %i)\n", e->img.w, e->img.h);
@@ -36,8 +36,6 @@ int		init_window(t_data *data, t_env *e, char *input)
 	e->win.mlx = mlx_new_window(e->mlx, e->win.w, e->win.h, input);
 	printf("mlx_put_image_to_window\n");
 	mlx_put_image_to_window(e->mlx, e->win.mlx, e->img.mlx, 0, 0);
-	printf("mlx_destroy_image\n");
-	mlx_destroy_image(e->mlx, e->img.mlx);
 	return (1);
 }
 
