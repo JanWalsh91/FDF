@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 18:09:37 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 14:48:44 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,16 +177,15 @@ void	update_2d_coords(t_data *data);
 void	get_center(t_data *d);
 t_incr	get_incr(t_vec2 p1, t_vec2 p2, int c1, int c2);
 void	get_color_incr(t_incr *incr, int c1, int c2, float steps);
+void	get_unit_size(t_data *d, float height, float width);
 
 /*
 ** Flow control functions.
 */
 
-int		init_window(t_data *data, t_env *e, char *input);
-int		init_pts_2d(t_data *data);
-void	get_2d_coords(t_data *data, t_vec2 *p, int x, int y);
+int		init_window(t_data *d, t_env *e, char *input);
+int		init_get_pts_2d(t_data *data);
 void	get_init_win_size(t_env *e, t_data *d);
-void	put_2d_to_scale(t_data *d);
 
 /*
 ** Draw functions
