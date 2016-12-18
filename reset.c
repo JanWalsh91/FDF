@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:23:51 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 18:06:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 16:33:21 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 ** the program.
 */
 
-void	set_default_values(t_data *data)
+void	set_default_values(t_data *d)
 {
 	printf("set_default_values\n");
-	data->color_input = 0;
-	data->c = 0;
-	data->s = NULL;
-	data->unit_size = 1;
-	reset_ref(&(data->ref));
-	reset_d3(&(data->d3));
-	reset_d2(&(data->d2));
-	reset_center(&(data->center));
+	d->color_input = 0;
+	d->c = 0;
+	d->s = NULL;
+	d->unit_size = 1;
+	d->matrix = new_identity_matrix();
+	reset_ref(&(d->ref));
+	reset_d3(&(d->d3));
+	reset_d2(&(d->d2));
+	reset_center(&(d->center));
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 14:28:16 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 16:10:52 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,32 @@
 ** input of the file.
 */
 
-static int	set_3d_pt(t_data *data, t_pt2 *i);
+static int	set_3d_pt(t_data *d, t_pt2 *i);
+static int	init_set_3d_pts(t_data *d);
 
 int	init_set_data(t_data *d)
 {
-	printf("set_data\n");
+	printf("init_set_data\n");
+	if (!init_set_3d_pts(d) ||
+			!init_set_mpts3d(d) ||
+			!init_colors(d) ||
+			!init_get_pts_2d(d))
+		return (0);
+	get_unit_size(d);
+	get_center(d);
+	update_2d_coords(d);
+	return (1);
+}
+
+static int	init_set_3d_pts(t_data *d)
+{
+	printf("init_set_3d_pts\n");
 	t_pt2	j;
 	t_pt2	i;
 	
 	i.x = 0;
 	i.y = 0;
-	if (!((d->pts_3d) = (t_vec3 **)malloc(sizeof(t_vec3 *) * d->ref.y)))
+	if (!(d->pts_3d = (t_vec3 **)malloc(sizeof(t_vec3 *) * d->ref.y)))
 		return (error());
 	j.y = 0;
 	while (j.y < d->ref.y)
@@ -52,25 +67,25 @@ int	init_set_data(t_data *d)
 ** If a color is indicated, also sets the color at the appropriate cooridinate.
 */
 
-static int	set_3d_pt(t_data *data, t_pt2 *i)
+static int	set_3d_pt(t_data *d, t_pt2 *i)
 {
 	printf("set_pt\n");
-	if (!*(data->s) || *(data->s) == '\n')
+	if (!*(d->s) || *(d->s) == '\n')
 		return (1);
-	data->pts_3d[i->y][i->x].x = i->x;
-	data->pts_3d[i->y][i->x].y = i->y;
-	data->pts_3d[i->y][i->x].z = ft_atoi(data->s);
-	while (ft_isdigit(*data->s))
-		++data->s;
-	if (*data->s == ',')
+	d->pts_3d[i->y][i->x].x = i->x;
+	d->pts_3d[i->y][i->x].y = i->y;
+	d->pts_3d[i->y][i->x].z = ft_atoi(d->s);
+	while (ft_isdigit(*d->s))
+		++d->s;
+	if (*d->s == ',')
 	{
-		if (0 > (data->colors[0][i->y][i->x] = set_color(&data->s)))
+		if (0 > (d->colors[0][i->y][i->x] = set_color(&d->s)))
 			return (0);
 		printf("Added color at (y, x) (%i, %i)\n", i->y, i->x);
 	}
-	while (*data->s == 32 || *data->s == '\n')
-		++data->s;
-	increment_index(&i->x, &i->y, data);
+	while (*d->s == 32 || *d->s == '\n')
+		++d->s;
+	increment_index(&i->x, &i->y, d);
 	return (1);
 }
 

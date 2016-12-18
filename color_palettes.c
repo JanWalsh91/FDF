@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 17:46:51 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 15:40:49 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,14 @@ int		init_colors(t_data *d)
 		}
 		++i;
 	}
-	return (1);
+	return (init_set_palettes(d));
 }
 
-void	init_set_palettes(t_data *d)
+/*
+** Sets up the other color palettes as defined in the header.
+*/
+
+int		init_set_palettes(t_data *d)
 {
 	printf("set_palettes\n");
 	int	**palettes;
@@ -57,13 +61,10 @@ void	init_set_palettes(t_data *d)
 
 	y = 0;
 	if (!(palettes = (int **)malloc(sizeof(int *) * 4)))
-		return ;
+		return (error());
 	while (y < 4)
-	{
-		if (!(palettes[y] = (int *)malloc(sizeof(int) * 4)))
-			return ;
-		++y;
-	}
+		if (!(palettes[y++] = (int *)malloc(sizeof(int) * 4)))
+			return (error());
 	set_palette_arrays(&palettes);
 	printf("color input: %i\n", d->color_input);
 	i = d->color_input;
@@ -71,6 +72,7 @@ void	init_set_palettes(t_data *d)
 	set_palette(d, ++i, palettes[1]);
 	set_palette(d, ++i, palettes[2]);
 	set_palette(d, ++i, palettes[3]);
+	return (1);
 }
 
 void static set_palette(t_data *d, int num, int *p)
@@ -80,6 +82,7 @@ void static set_palette(t_data *d, int num, int *p)
 	t_pt2	i;
 
 	i.y = 0;
+	get_d3(d);
 	height = d->d3.max.z - d->d3.min.z;
 	while (i.y < d->ref.y)
 	{
@@ -94,7 +97,6 @@ void static set_palette(t_data *d, int num, int *p)
 				d->colors[num][i.y][i.x] = p[2];
 			else if (d->pts_3d[i.y][i.x].z <= (height))
 				d->colors[num][i.y][i.x] = p[3];
-			//printf("added color: %i\n", d->colors[num][i.y][i.x]);
 			++i.x;
 		}
 		++i.y;

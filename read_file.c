@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 14:23:31 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 15:04:28 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** Reads the input with get_next_line and checks validity of lines and points.
 ** Puts the contents of the file in char *data->s.
 ** Determines ref.x and ref.y for allocating memory later on.
+** Sets color_input to 1 if a comma is found.
 */
 
 static int	check_line(char *line, t_data *d);

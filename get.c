@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 12:40:37 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 14:47:11 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 15:42:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	get_d2(t_data *d)
 
 void	get_center(t_data *d)
 {
+	get_d2(d);
 	d->center.x = -d->d2.min.x + FRAME_WIDTH;
 	d->center.y = -d->d2.min.y + FRAME_WIDTH;
 	printf("center: (y, x) (%.2f, %.2f)\n", d->center.y, d->center.x);

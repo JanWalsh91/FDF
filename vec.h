@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 13:48:27 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/15 17:47:09 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 16:25:18 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_matrix4	new_matrix(void);
 t_matrix4	new_identity_matrix(void);
 t_matrix4	new_scaling_matrix(float i);
 t_matrix4	matrix4_product(t_matrix4 m1, t_matrix4 m2);
-t_vec3		pt3_matrix4_product(t_vec3 p, t_matrix4 m);
+t_vec3		vec3_matrix4_product(t_vec3 p, t_matrix4 m);
 
 /*
 ** Matrix_fnct2

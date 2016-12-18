@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:47:45 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/14 15:08:32 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 16:13:49 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_matrix4	matrix4_product(t_matrix4 m1, t_matrix4 m2)
 	int			y;
 	t_matrix4	m;
 
+	m = new_matrix();
 	x = 0;
 	while (x < 4)
 	{
@@ -103,7 +104,7 @@ t_matrix4	matrix4_product(t_matrix4 m1, t_matrix4 m2)
 ** Returns a new vector which is the product of the matrix on the vector.
 */
 
-t_vec3	pt3_matrix4_product(t_vec3 p, t_matrix4 m)
+t_vec3	vec3_matrix4_product(t_vec3 p, t_matrix4 m)
 {
 	t_vec3	new;
 

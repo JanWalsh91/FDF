@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 14:48:44 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/18 16:11:34 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,8 @@ typedef struct	s_data
 	char		*s; //String we read and store file contents.
 	t_pt2		ref; //number of rows and columns. Used to access points.
 	t_vec3		**pts_3d; // 2D array of 3D coordinates
-	t_vec3		**matrixed_pts;
+	t_matrix4	matrix;
+	t_vec3		**mpts_3d;
 	t_vec2		**pts_2d; // 2D array of 2D coordinates
 	int			***colors; // 2D arrays of color values for each point
 	int			c; // index of the color set.
@@ -153,6 +154,7 @@ int		error(void);
 int		read_file(char *input, t_data *data);
 int		init_colors(t_data *data);
 int		init_set_data(t_data *data);
+int		init_set_2d_pts(t_data *d);
 int		set_color(char **s);
 void	increment_index(int *x, int *y, t_data *data);
 
@@ -161,7 +163,8 @@ void	increment_index(int *x, int *y, t_data *data);
 */
 
 void	set_default_values(t_data *data);
-void	init_set_palettes(t_data *d);
+int		init_set_mpts3d(t_data *d);
+int		init_set_palettes(t_data *d);
 void	reset_ref(t_pt2 *ref);
 void	reset_d3(t_d3 *d3);
 void	reset_d2(t_d2 *d2);
@@ -177,7 +180,7 @@ void	update_2d_coords(t_data *data);
 void	get_center(t_data *d);
 t_incr	get_incr(t_vec2 p1, t_vec2 p2, int c1, int c2);
 void	get_color_incr(t_incr *incr, int c1, int c2, float steps);
-void	get_unit_size(t_data *d, float height, float width);
+void	get_unit_size(t_data *d);
 
 /*
 ** Flow control functions.
