@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 16:54:01 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 12:42:47 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 14:09:51 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec.h"
+#include "include/vec.h"
 
 static t_matrix4	m_rot_x(float angle);
 static t_matrix4	m_rot_y(float angle);

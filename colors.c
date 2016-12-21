@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:48 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/17 17:31:46 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 12:44:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 static int	get_hex(char *tmp, int length);
 static int	get_hex_value(char c);

@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 14:54:21 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 15:42:09 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/20 20:17:31 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y);
 
@@ -75,9 +75,9 @@ void	update_2d_coords(t_data *d)
 
 static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y)
 {
-	p->x = (d->pts_3d[y][x].x + d->pts_3d[y][x].y + d->center.x);
-	p->y = (((d->pts_3d[y][x].y - d->pts_3d[y][x].x) * 0.5) -
-		d->pts_3d[y][x].z + d->center.y);
-	p->x *= d->unit_size;
-	p->y *= d->unit_size;
+	p->x = (d->mpts_3d[y][x].x + d->mpts_3d[y][x].y + d->center.x);
+	p->y = (((d->mpts_3d[y][x].y - d->mpts_3d[y][x].x) * 0.5) -
+		d->mpts_3d[y][x].z + d->center.y);
+	p->x *= (d->unit_size + d->zoom);
+	p->y *= (d->unit_size + d->zoom);
 }

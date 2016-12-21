@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:24:15 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/15 17:47:21 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 18:15:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ char			*ft_straddcharfree(char const *s, char c);
 char			*ft_to_base(int n, int b);
 int				ft_error(char *error_msg);
 int				ft_round(float i);
+int				ft_rgb_mix(int *colors, int n);
 
 #endif

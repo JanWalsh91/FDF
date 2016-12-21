@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/18 16:32:35 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/21 18:30:33 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,26 +14,29 @@ SRC_NAME = main.c \
 		   fdf.c \
 		   read_file.c \
 		   set_data.c \
-		   init_set_mpts_3d.c \
 		   get_2d_coords.c \
+		   init_set_mpts_3d.c \
+		   instructions.c \
 		   colors.c \
 		   color_palettes.c \
 		   reset.c \
 		   get.c \
-		   mlx_fnct1.c \
 		   draw.c \
-		   matrix_fnct1.c \
-		   matrix_fnct2.c \
+		   win_img.c \
+		   mlx_fnct1.c \
+		   mlx_fnct2.c \
 		   vector_fnct1.c \
 		   vector_fnct2.c \
 		   vector_fnct3.c \
+		   matrix_fnct1.c \
+		   matrix_fnct2.c \
 		   debugging.c
 
 NAME = fdf
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-HEAD = fdf.h
+HEAD = include/
 
 CC = gcc
 

@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:47:45 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 16:13:49 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 16:12:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec.h"
+#include "include/vec.h"
 
 /*
 ** Creates a new 4 by 4 matrix and sets its values to 0;

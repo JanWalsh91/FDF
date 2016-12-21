@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec.h"
+#include "include/vec.h"
 
 t_vec3	vec_plus(t_vec3 vec1, t_vec3 vec2)
 {

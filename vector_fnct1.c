@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec.h"
+#include "include/vec.h"
 
 float	vec_length(t_vec3 vec)
 {

@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 16:06:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 16:30:08 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 16:37:59 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 /*
 ** Calls on draw_line between each relevant 2D point.
@@ -43,6 +43,7 @@ void	draw_image(t_data *d, t_env *e)
 		}
 		++i.y;
 	}
+	printf("check2: (y, x) (%i, %i)\n", d->ref.y, d->ref.x);
 }
 
 /*
@@ -73,7 +74,7 @@ void	draw_line(t_env *e, t_vec2 p1, t_vec2 p2, int c1, int c2)
 		pt.y += incr.y;
 		++v;
 	}
-	printf("end draw_line\n");
+	//printf("end draw_line\n");
 }
 
 /*
@@ -82,10 +83,11 @@ void	draw_line(t_env *e, t_vec2 p1, t_vec2 p2, int c1, int c2)
 
 void	draw_pixel(t_env *e, int x, int y, int color)
 {
-	printf("draw_pixel at (y, x): (%i, %i) with color: %x\n", y, x, color);
-	e->draw.tmp = (unsigned int *)(e->draw.image + y*e->draw.size_line +
-			x * e->draw.bpp / 8);
-	*(e->draw.tmp) = color;
-	printf("end draw_pixel\n");
-}
+	unsigned int	*tmp;
 
+	//printf("draw_pixel at (y, x): (%i, %i) with color: %x\n", y, x, color);
+	tmp = (unsigned int *)(e->draw.image + y*e->draw.size_line +
+			x * e->draw.bpp / 8);
+	*tmp = color;
+	//printf("end draw_pixel\n");
+}

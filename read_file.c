@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 15:04:28 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 17:34:14 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 /*
 ** Reads the input with get_next_line and checks validity of lines and points.
@@ -59,7 +59,7 @@ static int	check_line(char *line, t_data *d)
 	int	i;
 	int	pt_count;
 
-	printf("check_line\n");
+	//printf("check_line\n");
 	i = 0;
 	pt_count = 0;
 	while (line && line[i])

@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 15:54:16 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 16:22:30 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/19 17:48:51 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 int		init_set_mpts3d(t_data *d)
 {

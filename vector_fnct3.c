@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec.h"
+#include "include/vec.h"
 
 t_vec3	 vec_translate(t_vec3 vec, t_vec3 i)
 {

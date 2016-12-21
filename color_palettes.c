@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/18 15:40:49 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/21 12:05:01 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 void static	set_palette(t_data *d, int i, int *p);
 void static	set_palette_arrays(int ***p);
@@ -22,7 +22,7 @@ void static	set_palette_arrays(int ***p);
 
 int		init_colors(t_data *d)
 {
-	printf("set_colors\n");
+	printf("init_colors\n");
 	int		i;
 	t_pt2	 p;
 
@@ -45,7 +45,7 @@ int		init_colors(t_data *d)
 		}
 		++i;
 	}
-	return (init_set_palettes(d));
+	return (1);
 }
 
 /*
