@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:12:39 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 16:57:48 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 ** Recommended window max size: (2400, 1300)
 */
 
-#define USAGE "Usage : ./fdf <filename> [ case_size z_size ]"
+#define USAGE "Usage : ./fdf <filename>"
 #define MAX_WIN_W 2400
 #define MAX_WIN_H 1300
 #define MIN_WIN_W 350
@@ -174,7 +174,7 @@ typedef struct s_all
 
 void	fdf(char *input);
 int		display_usage(void);
-int		error(void);
+int		return_error(void);
 
 /*
 ** Data verification and preparation.

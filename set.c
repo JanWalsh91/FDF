@@ -26,12 +26,12 @@ int		init_get_pts_2d(t_data *data)
 	int	x;
 
 	if (!(data->pts_2d = (t_vec2 **)malloc(sizeof(t_vec2 *) * data->ref.y)))
-		return (error());
+		return (return_error());
 	y = 0;
 	while (y < data->ref.y)
 	{
 		if (!(data->pts_2d[y] = (t_vec2 *)malloc(sizeof(t_vec2) * data->ref.x)))
-			return (error());
+			return (return_error());
 		x = 0;
 		while (x < data->ref.x)
 		{

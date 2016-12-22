@@ -17,12 +17,12 @@ int		init_set_mpts3d(t_data *d)
 	t_pt2	i;
 
 	if (!(d->mpts_3d = (t_vec3 **)malloc(sizeof(t_vec3 *) * d->ref.y)))
-		return (error());
+		return (return_error());
 	i.y = 0;
 	while (i.y < d->ref.y)
 	{
 		if (!(d->mpts_3d[i.y] = (t_vec3 *)malloc(sizeof(t_vec3) * d->ref.x)))
-			return (error());
+			return (return_error());
 		i.x = 0;
 		while (i.x < d->ref.x)
 		{

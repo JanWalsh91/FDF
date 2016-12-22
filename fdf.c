@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:08:38 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:14:34 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 16:57:38 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	my_key_fnct(int k, t_all *a)
 }
 
 /*
-** Responds to mouse clicks.
+** Responds to user mouse clicks.
 */
 
 static int	my_mouse_hook(int button, int x, int y, t_all *a)

@@ -26,17 +26,17 @@ int		init_colors(t_data *d)
 	t_pt2	 p;
 
 	if (!(d->colors = (int ***)malloc(sizeof(int **) * (4 + d->color_input))))
-		return (error());
+		return (return_error());
 	i = 0;
 	while (i < 4 + d->color_input)
 	{
 		if (!(d->colors[i] = (int **)malloc(sizeof(int *) * d->ref.y)))
-			return (error());
+			return (return_error());
 		p.y = 0;
 		while (p.y < d->ref.y)
 		{
 			if (!(d->colors[i][p.y] = (int *)malloc(sizeof(int) * d->ref.x)))
-				return (error());
+				return (return_error());
 			p.x = 0;
 			while (p.x < d->ref.x)
 				d->colors[i][p.y][p.x++] = DARK_GRAY;
@@ -59,10 +59,10 @@ int		init_set_palettes(t_data *d)
 
 	y = 0;
 	if (!(palettes = (int **)malloc(sizeof(int *) * 4)))
-		return (error());
+		return (return_error());
 	while (y < 4)
 		if (!(palettes[y++] = (int *)malloc(sizeof(int) * 4)))
-			return (error());
+			return (return_error());
 	set_palette_arrays(&palettes);
 	i = d->color_input;
 	set_palette(d, i, palettes[0]);

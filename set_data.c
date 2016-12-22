@@ -42,12 +42,12 @@ static int	init_set_3d_pts(t_data *d)
 	i.x = 0;
 	i.y = 0;
 	if (!(d->pts_3d = (t_vec3 **)malloc(sizeof(t_vec3 *) * d->ref.y)))
-		return (error());
+		return (return_error());
 	j.y = 0;
 	while (j.y < d->ref.y)
 	{
 		if (!(d->pts_3d[j.y] = (t_vec3 *)malloc(sizeof(t_vec3) * d->ref.x)))
-			return (error());
+			return (return_error());
 		j.x = 0;
 		while (j.x < d->ref.x)
 		{

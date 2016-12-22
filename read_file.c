@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:43:03 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 16:57:40 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	read_file(char *input, t_data *d)
 	int		ret;
 
 	if (!(fd = open(input, O_RDONLY)))
-		return (error());
+		return (return_error());
 	line = NULL;
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
@@ -39,14 +39,15 @@ int	read_file(char *input, t_data *d)
 		else
 		{
 			if (!(d->s = ft_strjoin(d->s, "\n")))
-				return (error());
+				return (return_error());
 			if (!(d->s = ft_strjoinfree(d->s, line, 'l')))
-				return (error());
+				return (return_error());
 		}
 	}
 	if (!d->s)
 		return (ft_error("file empty"));
-	return ((ret == -1) ? error() : 1);
+	close(fd);
+	return ((ret == -1) ? return_error() : 1);
 }
 
 /*

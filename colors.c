@@ -49,7 +49,7 @@ int			set_color(char **s)
 		++i;
 	}
 	if (!(tmp = (char *)malloc(sizeof(char) * (i + 1))))
-		return (error());
+		return (return_error());
 	tmp[i] = '\0';
 	i = 0;
 	while (**s && **s != ' ' && **s != '\n')

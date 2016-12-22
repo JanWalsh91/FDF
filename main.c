@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:04:54 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:28:53 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 16:50:21 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int	main(int ac, char **av)
 {
-	if (ac != 2)
+	int	i;
+
+	i = 0;
+	if (ac < 2)
 		return (display_usage());
-	else
-	{
-		fdf(av[1]);
-	}
+	while (++i < ac)
+		fdf(av[i]);
 	return (0);
 }
 
@@ -29,7 +30,7 @@ int	display_usage(void)
 	return (0);
 }
 
-int	error(void)
+int	return_error(void)
 {
 	ft_putendl_fd(strerror(errno), 2);
 	return (0);
