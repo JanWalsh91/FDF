@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 17:34:14 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:13:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static int	check_line(char *line, t_data *d)
 	int	i;
 	int	pt_count;
 
-	//printf("check_line\n");
 	i = 0;
 	pt_count = 0;
 	while (line && line[i])
@@ -67,12 +66,13 @@ static int	check_line(char *line, t_data *d)
 		if (!((ft_isdigit(line[i])) ||
 					('A' <= line[i] && line[i] <= 'F') ||
 					('a' <= line[i] && line[i] <= 'f') ||
-					(line[i] == ',') ||
-					(line[i] == 'x') ||
+					(line[i] == ',') || (line[i] == 'x') ||
+					(line[i] == '-') ||
 					line[i] == 32))
 			return (ft_error("Invalid character"));
 		(line[i] == ',') ? d->color_input = 1 : 0;
-		if (ft_isdigit(line[i]) && ((i == 0) || (line[i - 1] == 32)))
+		if ((ft_isdigit(line[i]) || line[i] == '-') &&
+				((i == 0) || (line[i - 1] == 32)))
 			pt_count++;
 		i++;
 	}

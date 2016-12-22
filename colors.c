@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:48 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 12:44:55 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:27:51 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int	get_hex_value(char c);
 
 void		get_color_incr(t_incr *incr, int c1, int c2, float steps)
 {
-	//printf("get_color_incr: c1: %x c2: %x\n", c1, c2);
 	int	mask;
 
 	mask = 0xFF;
@@ -26,7 +25,6 @@ void		get_color_incr(t_incr *incr, int c1, int c2, float steps)
 	incr->g = (((c2 & mask) - (c1 & mask)) / steps) / 0x100;
 	mask = mask << 8;
 	incr->r = (((c2 & mask) - (c1 & mask)) / steps) / 0x10000;
-	//printf("RGB: %f, %f. %f\n", incr->r, incr->g, incr->b);
 }
 
 /*
@@ -38,7 +36,6 @@ int			set_color(char **s)
 	int		i;
 	char	*tmp;
 
-	printf("get_color\n");
 	(*s)++;
 	if ((*s)[0] != '0' || (*s)[1] != 'x')
 		return (ft_error("Color incorrectly formatted"));
@@ -69,8 +66,6 @@ static int	get_hex(char *tmp, int length)
 	int	result;
 	int	i;
 
-	//printf("get_hex: %s\n", tmp);
-	i = 0;
 	result = 0;
 	while (i < length)
 	{
@@ -78,7 +73,6 @@ static int	get_hex(char *tmp, int length)
 		(i < length) ? result *= 16 : 0;
 	}
 	free(tmp);
-	//printf("new color: %i\n", result);
 	return (result);
 }
 

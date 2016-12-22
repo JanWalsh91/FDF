@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 17:40:03 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 17:46:29 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 13:13:22 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	recenter(t_env *e, t_data *d)
 	d->zoom = 0;
 	e->img.pos.x = 0;
 	e->img.pos.y = 0;
+	d->z_matrix = new_identity_matrix();
 	d->matrix = new_identity_matrix();
 	update_mpts3d(d);
 	get_center(d);

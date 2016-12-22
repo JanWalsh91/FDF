@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 18:00:24 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:06:59 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 #define USAGE "Usage : ./fdf <filename> [ case_size z_size ]"
 #define MAX_WIN_W 2400
 #define MAX_WIN_H 1300
+#define MIN_WIN_W 350
+#define MIN_WIN_H 200
 #define MAX_UNIT_SIZE 50
 #define FRAME_WIDTH 2 //number of unit_size wide.
 #define FLT_MIN 1.175494e-38
@@ -41,8 +43,8 @@
 ** Colors for 4 sets.
 */
 
-#define P0C0 DARK_SLATE_GRAY -0x0F0F0F
-#define P0C1 DARK_GREEN
+#define P0C0 DARK_GREEN
+#define P0C1 GREEN
 #define P0C2 SADDLEBROWN
 #define P0C3 GAINSBORO
 
@@ -146,6 +148,7 @@ typedef struct	s_data
 	t_pt2		ref; //number of rows and columns. Used to access points.
 	t_vec3		**pts_3d; // 2D array of 3D coordinates
 	t_matrix4	matrix;
+	t_matrix4	z_matrix;
 	t_vec3		**mpts_3d;
 	t_vec2		**pts_2d; // 2D array of 2D coordinates
 	int			***colors; // 2D arrays of color values for each point

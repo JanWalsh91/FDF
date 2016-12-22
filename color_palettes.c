@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 12:05:01 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:27:32 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void static	set_palette_arrays(int ***p);
 
 int		init_colors(t_data *d)
 {
-	printf("init_colors\n");
 	int		i;
 	t_pt2	 p;
 
@@ -54,7 +53,6 @@ int		init_colors(t_data *d)
 
 int		init_set_palettes(t_data *d)
 {
-	printf("set_palettes\n");
 	int	**palettes;
 	int	y;
 	int i;
@@ -66,7 +64,6 @@ int		init_set_palettes(t_data *d)
 		if (!(palettes[y++] = (int *)malloc(sizeof(int) * 4)))
 			return (error());
 	set_palette_arrays(&palettes);
-	printf("color input: %i\n", d->color_input);
 	i = d->color_input;
 	set_palette(d, i, palettes[0]);
 	set_palette(d, ++i, palettes[1]);
@@ -77,7 +74,6 @@ int		init_set_palettes(t_data *d)
 
 void static set_palette(t_data *d, int num, int *p)
 {
-	printf("set_palette with num: %i\n", num);
 	float	height;
 	t_pt2	i;
 
@@ -97,6 +93,7 @@ void static set_palette(t_data *d, int num, int *p)
 				d->colors[num][i.y][i.x] = p[2];
 			else if (d->pts_3d[i.y][i.x].z <= (height))
 				d->colors[num][i.y][i.x] = p[3];
+			(d->pts_3d[i.y][i.x].z < 0) ? d->colors[num][i.y][i.x] = 0x0505AA : 0;
 			++i.x;
 		}
 		++i.y;

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 15:49:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 17:16:21 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 13:07:53 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static void	display_header(t_env *e);
 static void	display_instructions(t_env *e);
+
+/*
+** Displays either the header or the instructions based on input.
+*/
 
 void	update_instructions(t_env *e, int a)
 {

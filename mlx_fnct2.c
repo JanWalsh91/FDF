@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:43:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 17:24:20 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:05:03 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	update_z_coord(int i, t_env *e, t_data *d)
 	t_pt2		old;
 	printf("check1\n");
 	if (e->img.pos.y > -10000)
-		d->matrix[2][2] *= (i > 0) ? 1.5 : 1 / 1.5;
+		d->z_matrix[2][2] *= (i > 0) ? 1.5 : 1 / 1.5;
 	else
-		d->matrix[2][2] *= (i > 0) ? 1 : 1 / 1.5;
+		d->z_matrix[2][2] *= (i > 0) ? 1 : 1 / 1.5;
 	printf("new [2][2]: %.2f\n", d->matrix[2][2]);
 	update_mpts3d(d);
 	get_center(d);

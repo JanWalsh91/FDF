@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:08:38 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 18:17:43 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 12:58:13 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ void	fdf(char *input)
 		return ;
 	a.e.mlx = mlx_init();
 	init_window(&a.d, &a.e, input);
-	//---MLX FLOW CONROL FUNCTIONS---
 	update_instructions(&a.e, 1);
 	printf("(%i, %i)\n", a.e.img.w, a.e.img.h);
 	mlx_mouse_hook(a.e.win.mlx, &my_mouse_hook, &a);
 	mlx_hook(a.e.win.mlx, KEYPRESS, KEYPRESSMASK, &my_key_fnct, &a);
+	//mlx_loop_hook(a.e.win.mlx, &my_key_fnct, &a);
 	mlx_loop(a.e.mlx);
 }
+
+/*
+** Responds to user keyboard input.
+*/
 
 static int	my_key_fnct(int keycode, t_all *a)
 {
@@ -65,15 +69,18 @@ static int	my_key_fnct(int keycode, t_all *a)
 	return (keycode);
 }
 
+/*
+** Responds to mouse clicks.
+*/
+
 static int	my_mouse_hook(int button, int x, int y, t_all *a)
 {
-	x = 0;
-	y = 0;
-	printf("Check\n");
+	printf("my_mouse_hook: button: %i (y, x): (%i. %i)\n", button, y, x);
+	if (y < 1 || button != 1)
+		return (0);
 	mlx_clear_window(a->e.mlx, a->e.win.mlx);
 	mlx_put_image_to_window(a->e.mlx, a->e.win.mlx, a->e.img.mlx,
 			a->e.img.pos.x, a->e.img.pos.y);
-	printf("Check\n");
 	update_instructions(&a->e, 1);
 	return (button);
 }

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 17:34:37 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:17:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	set_3d_pt(t_data *d, t_pt2 *i)
 	d->pts_3d[i->y][i->x].x = i->x;
 	d->pts_3d[i->y][i->x].y = i->y;
 	d->pts_3d[i->y][i->x].z = ft_atoi(d->s);
-	while (ft_isdigit(*d->s))
+	while (*d->s == '-' || ft_isdigit(*d->s))
 		++d->s;
 	if (*d->s == ',')
 	{
