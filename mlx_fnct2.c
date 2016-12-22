@@ -6,23 +6,25 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:43:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:05:03 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:04:28 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
+/*
+** Changes updates the z_matrix to change the height of the map.
+** The z_matrix is evaluated before the other matrix (for roations).
+*/
+
 void	update_z_coord(int i, t_env *e, t_data *d)
 {
-	printf("----------------------------------------update_z_coord: %i\n", i);
-	//t_matrix4	new;
 	t_pt2		old;
-	printf("check1\n");
-	if (e->img.pos.y > -10000)
+
+	if (e->img.pos.y > -10000 && e->img.pos.x > -5000 && e->img.pos.x < 5000)
 		d->z_matrix[2][2] *= (i > 0) ? 1.5 : 1 / 1.5;
 	else
 		d->z_matrix[2][2] *= (i > 0) ? 1 : 1 / 1.5;
-	printf("new [2][2]: %.2f\n", d->matrix[2][2]);
 	update_mpts3d(d);
 	get_center(d);
 	update_2d_coords(d);
@@ -33,9 +35,13 @@ void	update_z_coord(int i, t_env *e, t_data *d)
 	get_d2(d);
 	get_img_size(e, d);
 	e->img.pos.y -= (-old.y + e->img.h);
-	e->img.pos.x -= (-old.x + e->img.w);
+	e->img.pos.x -= (-old.x + e->img.w) / 2;
 	update_image(d, e);
 }
+
+/*
+** Updates the matrix to take into account rotation.
+*/
 
 void	rotate(char c, int i, t_env *e, t_data *d)
 {
@@ -57,6 +63,10 @@ void	rotate(char c, int i, t_env *e, t_data *d)
 	e->img.pos.x -= (-old.x + e->img.w) / 2;
 	update_image(d, e);
 }
+
+/*
+** Goes to the next color palette.
+*/
 
 void	update_colors(t_data *d, t_env *e)
 {

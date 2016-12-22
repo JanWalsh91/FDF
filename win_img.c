@@ -6,35 +6,31 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 17:26:52 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 13:09:24 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:18:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
 /*
-** Opens the window for the first time, draws and place the image on the
-** window and destroys the image.
+** Creates a new window, and updates the image.
 */
 
 void	init_window(t_data *d, t_env *e, char *input)
 {
-	//printf("init_window\n");
 	get_win_size(e, d);
 	e->win.mlx = mlx_new_window(e->mlx, e->win.w, e->win.h, input);
 	update_image(d, e);
 }
 
 /*
-** Creates a new images and puts it on the window.
+** Creates a new image, edits it, and puts in on the window.
 */
 
 void	update_image(t_data *d, t_env *e)
 {
-	//printf("update_image: (w, h) : (%i, %i)\n", e->img.w, e->img.h);
 	e->img.mlx = mlx_new_image(e->mlx, e->img.w, e->img.h);
 	draw_image(d, e);
-	//printf("mlx_put_image_to_window at (y, x) (%i, %i)\n", e->img.pos.y, e->img.pos.x);
 	mlx_put_image_to_window(e->mlx, e->win.mlx, e->img.mlx, e->img.pos.x,
 			e->img.pos.y);
 }
@@ -60,12 +56,10 @@ void	get_img_size(t_env *e, t_data *d)
 	float	width;
 
 	get_d2(d);
-	//printf("get_img_size\n");
 	height = d->d2.max.y - d->d2.min.y;
 	width = d->d2.max.x - d->d2.min.x;
 	e->img.h = height + FRAME_WIDTH * 2 * (d->unit_size + d->zoom);
 	e->img.w = width + FRAME_WIDTH * 2 * (d->unit_size + d->zoom);
-	//printf("height: %.2f, width: %.2f\n", height, width);
 }
 
 /*

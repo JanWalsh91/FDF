@@ -6,11 +6,15 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 17:40:03 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 13:13:22 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:08:03 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
+
+/*
+** Updates the position of the image to simulate a translation.
+*/
 
 void	update_img_pos_y(int i, t_env *e)
 {
@@ -28,17 +32,10 @@ void	update_img_pos_x(int i, t_env *e)
 			e->img.pos.y);
 }
 
-void	update_img_pos_reset(t_env *e)
-{
-	mlx_clear_window(e->mlx, e->win.mlx);
-	e->img.pos.y = 0;
-	e->img.pos.x = 0;
-	mlx_put_image_to_window(e->mlx, e->win.mlx, e->img.mlx, e->img.pos.x,
-			e->img.pos.y);
-}
+/*
+** Updates the unit_size to simlate zooming in or out.
+*/
 
-
-//make a function to get the new pos.x and y
 void	update_unit_size(int i, t_env *e, t_data *d)
 {
 	t_pt2	old;
@@ -65,6 +62,10 @@ void	update_unit_size(int i, t_env *e, t_data *d)
 	e->img.mlx = mlx_new_image(e->mlx, e->img.w, e->img.h);
 	update_image(d, e);
 }
+
+/*
+** Resets the image position, zoom and matrices. Does not reset the color.
+*/
 
 void	recenter(t_env *e, t_data *d)
 {

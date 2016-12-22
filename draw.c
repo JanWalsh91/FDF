@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 16:06:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/21 16:37:59 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:08:11 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	draw_image(t_data *d, t_env *e)
 {
 	t_pt2	i;
 
-	printf("draw_image\n");
 	e->draw.image = mlx_get_data_addr(e->img.mlx, &(e->draw.bpp),
 			&(e->draw.size_line), &(e->draw.endian));
 	i.y = 0;
@@ -43,7 +42,6 @@ void	draw_image(t_data *d, t_env *e)
 		}
 		++i.y;
 	}
-	printf("check2: (y, x) (%i, %i)\n", d->ref.y, d->ref.x);
 }
 
 /*
@@ -52,7 +50,6 @@ void	draw_image(t_data *d, t_env *e)
 
 void	draw_line(t_env *e, t_vec2 p1, t_vec2 p2, int c1, int c2)
 {
-	//printf("draw_line between (y, x) (%.2f, %.2f) and (%.2f, %.2f)\n", p1.y, p1.x, p2.y, p2.x);
 	t_incr	incr;
 	t_vec2	pt;
 	float	color;
@@ -74,7 +71,6 @@ void	draw_line(t_env *e, t_vec2 p1, t_vec2 p2, int c1, int c2)
 		pt.y += incr.y;
 		++v;
 	}
-	//printf("end draw_line\n");
 }
 
 /*
@@ -85,9 +81,7 @@ void	draw_pixel(t_env *e, int x, int y, int color)
 {
 	unsigned int	*tmp;
 
-	//printf("draw_pixel at (y, x): (%i, %i) with color: %x\n", y, x, color);
 	tmp = (unsigned int *)(e->draw.image + y*e->draw.size_line +
 			x * e->draw.bpp / 8);
 	*tmp = color;
-	//printf("end draw_pixel\n");
 }

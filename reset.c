@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:23:51 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 13:10:22 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:12:41 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 
 void	set_default_values(t_data *d, t_env *e)
 {
-	printf("set_default_values\n");
 	d->color_input = 0;
 	d->c = 0;
 	d->s = NULL;
 	d->unit_size = 1;
 	d->zoom = 0;
+	d->ref.x = 0;
+	d->ref.y = 0;
 	d->matrix = new_identity_matrix();
 	d->z_matrix = new_identity_matrix();
-	reset_ref(&(d->ref));
 	reset_d3(&(d->d3));
 	reset_d2(&(d->d2));
 	reset_img_pos(&(e->img.pos));
@@ -35,18 +35,7 @@ void	set_default_values(t_data *d, t_env *e)
 }
 
 /*
-** Only needs to be called on at the beginning.
-*/
-
-void	reset_ref(t_pt2 *ref)
-{
-	ref->x = 0;
-	ref->y = 0;
-}
-
-/*
 ** Resets min max values of the 3D coords.
-** Called on when you need to reevaluate 
 */
 
 void	reset_d3(t_d3 *d3)
@@ -59,6 +48,10 @@ void	reset_d3(t_d3 *d3)
 	d3->min.z = FLT_MAX;
 }
 
+/*
+** Resets min max values of the 2D coords.
+*/
+
 void	reset_d2(t_d2 *d2)
 {
 	d2->max.x = -FLT_MAX;
@@ -67,11 +60,19 @@ void	reset_d2(t_d2 *d2)
 	d2->min.y = FLT_MAX;
 }
 
-void	reset_center(t_vec2 *center) //should actually calculate the new center.
+/*
+** Resets the center.
+*/
+
+void	reset_center(t_vec2 *center)
 {
 	center->x = 0;
 	center->y = 0;
 }
+
+/*
+** Resets the position of the image.
+*/
 
 void	reset_img_pos(t_pt2 *pos)
 {

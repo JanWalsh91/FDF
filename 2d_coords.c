@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set.c                                              :+:      :+:    :+:   */
+/*   2d_coords.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/09 13:17:49 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:15:11 by jwalsh           ###   ########.fr       */
+/*   Created: 2016/12/22 14:31:30 by jwalsh            #+#    #+#             */
+/*   Updated: 2016/12/22 14:31:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y);
 
@@ -40,7 +40,6 @@ int		init_get_pts_2d(t_data *data)
 		}
 		y++;
 	}
-	get_d2(data);
 	return (1);
 }
 
@@ -69,14 +68,15 @@ void	update_2d_coords(t_data *d)
 
 /*
 ** Determines the 2D coords of a point based of the corresponding 3D coords of
-** the same point and the center of the canvas. MULTIPLIED BY UNIT SIZE.
+** the same point and the center of the canvas. The result is adjuted by
+** the unit size and the zoom.
 */
 
 static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y)
 {
-	p->x = (d->pts_3d[y][x].x + d->pts_3d[y][x].y + d->center.x);
-	p->y = (((d->pts_3d[y][x].y - d->pts_3d[y][x].x) * 0.5) -
-		d->pts_3d[y][x].z + d->center.y);
-	p->x *= d->unit_size;
-	p->y *= d->unit_size;
+	p->x = (d->mpts_3d[y][x].x + d->mpts_3d[y][x].y + d->center.x);
+	p->y = (((d->mpts_3d[y][x].y - d->mpts_3d[y][x].x) * 0.5) -
+		d->mpts_3d[y][x].z + d->center.y);
+	p->x *= (d->unit_size + d->zoom);
+	p->y *= (d->unit_size + d->zoom);
 }

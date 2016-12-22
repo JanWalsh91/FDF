@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:06:59 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:12:39 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,6 @@ void	increment_index(int *x, int *y, t_data *data);
 void	set_default_values(t_data *d, t_env *e);
 int		init_set_mpts3d(t_data *d);
 int		init_set_palettes(t_data *d);
-void	reset_ref(t_pt2 *ref);
 void	reset_d3(t_d3 *d3);
 void	reset_d2(t_d2 *d2);
 void	reset_center(t_vec2 *center);

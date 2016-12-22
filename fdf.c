@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:08:38 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 12:58:13 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 15:14:34 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ void	fdf(char *input)
 	a.e.mlx = mlx_init();
 	init_window(&a.d, &a.e, input);
 	update_instructions(&a.e, 1);
-	printf("(%i, %i)\n", a.e.img.w, a.e.img.h);
 	mlx_mouse_hook(a.e.win.mlx, &my_mouse_hook, &a);
 	mlx_hook(a.e.win.mlx, KEYPRESS, KEYPRESSMASK, &my_key_fnct, &a);
-	//mlx_loop_hook(a.e.win.mlx, &my_key_fnct, &a);
 	mlx_loop(a.e.mlx);
 }
 
@@ -41,32 +39,32 @@ void	fdf(char *input)
 ** Responds to user keyboard input.
 */
 
-static int	my_key_fnct(int keycode, t_all *a)
+static int	my_key_fnct(int k, t_all *a)
 {
-	printf("my_key_fnct: %i\n", keycode);
-	printf("(%i, %i)\n", a->e.img.w, a->e.img.h);
-	if (keycode == KEY_ESCAPE)
+	if (k == KEY_ESCAPE)
 		exit(0);
-	else if (keycode == KEY_UP || keycode == KEY_DOWN)
-		update_img_pos_y(keycode == KEY_UP ? -5 : 5, &(a->e));
-	else if (keycode == KEY_RIGHT || keycode == KEY_LEFT)
-		update_img_pos_x(keycode == KEY_LEFT ? -5 : 5, &(a->e));
-	else if (keycode == KEY_SPACE)
+	else if (k == KEY_UP || k == KEY_DOWN)
+		update_img_pos_y(k == KEY_UP ? -5 : 5, &(a->e));
+	else if (k == KEY_RIGHT || k == KEY_LEFT)
+		update_img_pos_x(k == KEY_LEFT ? -5 : 5, &(a->e));
+	else if (k == KEY_SPACE)
 		recenter(&(a->e), &(a->d));
-	else if (keycode == KEY_EQUAL || keycode == KEY_MINUS)
-		update_unit_size(keycode == KEY_EQUAL ? 1 : -1, &(a->e), &(a->d));
-	else if (keycode == KEY_OPEN_BRACE || keycode == KEY_CLOSE_BRACE)
-		update_z_coord(keycode == KEY_OPEN_BRACE ? -1 : 1, &(a->e), &(a->d));
-	else if (keycode == KEY_Q || keycode == KEY_A)
-		rotate('z', keycode == KEY_Q ? 1 : -1, &a->e, &a->d);
-	else if (keycode == KEY_W || keycode == KEY_S)
-		rotate('x', keycode == KEY_W ? 1 : -1, &a->e, &a->d);
-	else if (keycode == KEY_E || keycode == KEY_D)
-		rotate('y', keycode == KEY_E ? 1 : -1, &a->e, &a->d);
-	else if (keycode == KEY_C)
+	else if (k == KEY_EQUAL || k == KEY_PAD_ADD ||
+			k == KEY_MINUS || k == KEY_PAD_SUB)
+		update_unit_size(k == KEY_EQUAL || k == KEY_PAD_ADD ?
+				1 : -1, &(a->e), &(a->d));
+	else if (k == KEY_OPEN_BRACE || k == KEY_CLOSE_BRACE)
+		update_z_coord(k == KEY_OPEN_BRACE ? -1 : 1, &(a->e), &(a->d));
+	else if (k == KEY_Q || k == KEY_A)
+		rotate('z', k == KEY_Q ? 1 : -1, &a->e, &a->d);
+	else if (k == KEY_W || k == KEY_S)
+		rotate('x', k == KEY_W ? 1 : -1, &a->e, &a->d);
+	else if (k == KEY_E || k == KEY_D)
+		rotate('y', k == KEY_E ? 1 : -1, &a->e, &a->d);
+	else if (k == KEY_C)
 		update_colors(&a->d, &a->e);
 	update_instructions(&a->e, 0);
-	return (keycode);
+	return (k);
 }
 
 /*
@@ -75,12 +73,21 @@ static int	my_key_fnct(int keycode, t_all *a)
 
 static int	my_mouse_hook(int button, int x, int y, t_all *a)
 {
-	printf("my_mouse_hook: button: %i (y, x): (%i. %i)\n", button, y, x);
-	if (y < 1 || button != 1)
+	printf("button: %i\n", button);
+	if (!x || y < 1)
 		return (0);
-	mlx_clear_window(a->e.mlx, a->e.win.mlx);
-	mlx_put_image_to_window(a->e.mlx, a->e.win.mlx, a->e.img.mlx,
+	if (button == 1)
+	{
+		mlx_clear_window(a->e.mlx, a->e.win.mlx);
+		mlx_put_image_to_window(a->e.mlx, a->e.win.mlx, a->e.img.mlx,
 			a->e.img.pos.x, a->e.img.pos.y);
-	update_instructions(&a->e, 1);
-	return (button);
+		update_instructions(&a->e, 1);
+		return (0);
+	}
+	if (button == 4)
+		update_unit_size(1, &a->e, &a->d);
+	if (button == 5)
+		update_unit_size(-1, &a->e, &a->d);
+	update_instructions(&a->e, 0);
+	return (0);
 }

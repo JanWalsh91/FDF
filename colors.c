@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:48 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:27:51 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:42:46 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static int	get_hex(char *tmp, int length)
 	int	result;
 	int	i;
 
+	i = 0;
 	result = 0;
 	while (i < length)
 	{

@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/21 18:30:33 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/22 14:35:32 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ SRC_NAME = main.c \
 		   fdf.c \
 		   read_file.c \
 		   set_data.c \
-		   get_2d_coords.c \
-		   init_set_mpts_3d.c \
+		   2d_coords.c \
+		   mpts_3d.c \
 		   instructions.c \
 		   colors.c \
 		   color_palettes.c \

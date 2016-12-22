@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:13:23 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:43:03 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	read_file(char *input, t_data *d)
 	char	*line;
 	int		ret;
 
-	printf("read_file\n");
 	if (!(fd = open(input, O_RDONLY)))
 		return (error());
 	line = NULL;

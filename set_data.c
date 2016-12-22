@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:17:33 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/22 14:43:40 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	init_set_3d_pts(t_data *d);
 
 int	init_set_data(t_data *d)
 {
-	printf("init_set_data\n");
 	if (!init_colors(d) ||
 			!init_set_3d_pts(d) ||
 			!init_set_mpts3d(d) ||
@@ -37,7 +36,6 @@ int	init_set_data(t_data *d)
 
 static int	init_set_3d_pts(t_data *d)
 {
-	printf("init_set_3d_pts\n");
 	t_pt2	j;
 	t_pt2	i;
 	
@@ -70,7 +68,6 @@ static int	init_set_3d_pts(t_data *d)
 
 static int	set_3d_pt(t_data *d, t_pt2 *i)
 {
-	//printf("set_pt\n");
 	if (!*(d->s) || *(d->s) == '\n')
 		return (1);
 	d->pts_3d[i->y][i->x].x = i->x;
@@ -79,11 +76,8 @@ static int	set_3d_pt(t_data *d, t_pt2 *i)
 	while (*d->s == '-' || ft_isdigit(*d->s))
 		++d->s;
 	if (*d->s == ',')
-	{
 		if (0 > (d->colors[0][i->y][i->x] = set_color(&d->s)))
 			return (0);
-		//printf("Added color at (y, x) (%i, %i)\n", i->y, i->x);
-	}
 	while (*d->s == 32 || *d->s == '\n')
 		++d->s;
 	increment_index(&i->x, &i->y, d);
