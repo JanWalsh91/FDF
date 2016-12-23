@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:43:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:04:28 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 16:41:54 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,12 @@ void	update_colors(t_data *d, t_env *e)
 	mlx_destroy_image(e->mlx, e->img.mlx);
 	get_img_size(e, d);
 	update_image(d, e);
+}
+
+int	red_button_exit(int k, t_all *a)
+{
+	a = NULL;
+	k = 0;
+	exit(0);
+	return (0);
 }

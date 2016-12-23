@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 16:57:40 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 16:30:38 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ int	read_file(char *input, t_data *d)
 		{
 			if (!(d->s = ft_strjoin(d->s, "\n")))
 				return (return_error());
-			if (!(d->s = ft_strjoinfree(d->s, line, 'l')))
+			if (!(d->s = ft_strjoinfree(d->s, line, 'b')))
 				return (return_error());
 		}
 	}
-	if (!d->s)
-		return (ft_error("file empty"));
 	close(fd);
-	return ((ret == -1) ? return_error() : 1);
+	if (ret == -1)
+		return (return_error());
+	return ((!d->s) ? ft_error("file error") : 1);
 }
 
 /*

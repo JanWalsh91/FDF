@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:23:51 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:12:41 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 13:43:26 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 ** the program.
 */
 
-void	set_default_values(t_data *d, t_env *e)
+void	set_default_values(t_data *d, t_env *e, int f_c, char **f_n, int i)
 {
+	d->file_count = f_c;
+	d->file_names = f_n;
+	d->file_index = i;
 	d->color_input = 0;
 	d->c = 0;
 	d->s = NULL;

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:27:32 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 14:19:53 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int		init_set_palettes(t_data *d)
 	int	y;
 	int i;
 
-	y = 0;
+	y = -1;
 	if (!(palettes = (int **)malloc(sizeof(int *) * 4)))
 		return (return_error());
-	while (y < 4)
-		if (!(palettes[y++] = (int *)malloc(sizeof(int) * 4)))
+	while (++y < 4)
+		if (!(palettes[y] = (int *)malloc(sizeof(int) * 4)))
 			return (return_error());
 	set_palette_arrays(&palettes);
 	i = d->color_input;
@@ -69,6 +69,10 @@ int		init_set_palettes(t_data *d)
 	set_palette(d, ++i, palettes[1]);
 	set_palette(d, ++i, palettes[2]);
 	set_palette(d, ++i, palettes[3]);
+	y = -1;
+	while (++y < 4)
+		free(palettes[y]);
+	free(palettes);
 	return (1);
 }
 

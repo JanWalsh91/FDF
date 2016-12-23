@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/22 14:35:32 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/23 13:41:24 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC_NAME = main.c \
 		   vector_fnct3.c \
 		   matrix_fnct1.c \
 		   matrix_fnct2.c \
+		   free_all.c \
 		   debugging.c
 
 NAME = fdf

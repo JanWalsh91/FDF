@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:43:40 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 15:26:35 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	init_set_3d_pts(t_data *d);
 
 int	init_set_data(t_data *d)
 {
+	d->to_free = d->s;
 	if (!init_colors(d) ||
 			!init_set_3d_pts(d) ||
 			!init_set_mpts3d(d) ||
