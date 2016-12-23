@@ -1,0 +1,3 @@
+[submodule "Libmathft"]
+	path = Libmathft
+	url = https://github.com/JanWalsh91/Libmathft.git
