@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:23:51 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 13:43:26 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 18:58:28 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	set_default_values(t_data *d, t_env *e, int f_c, char **f_n, int i)
 	d->zoom = 0;
 	d->ref.x = 0;
 	d->ref.y = 0;
-	d->matrix = new_identity_matrix();
-	d->z_matrix = new_identity_matrix();
+	d->matrix = new_identity_matrix4();
+	d->z_matrix = new_identity_matrix4();
 	reset_d3(&(d->d3));
 	reset_d2(&(d->d2));
 	reset_img_pos(&(e->img.pos));

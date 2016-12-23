@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:43:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 16:41:54 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 19:20:33 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	rotate(char c, int i, t_env *e, t_data *d)
 	t_matrix4	new;
 	t_pt2	old;
 
-	new = new_rotation_matrix(5 * i, c);
+	new = new_rotation_matrix4(5 * i, c);
 	d->matrix = matrix4_product(d->matrix, new);
 	update_mpts3d(d);
 	get_center(d);

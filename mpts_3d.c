@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 14:32:13 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:32:16 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/23 19:14:30 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	update_mpts3d(t_data *d)
 	t_pt2		i;
 	t_matrix4	new;
 
-	new = new_identity_matrix();
+	new = new_identity_matrix4();
 	new = matrix4_product(d->z_matrix, d->matrix);
 	i.y = 0;
 	while (i.y < d->ref.y)

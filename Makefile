@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/23 13:41:24 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/23 19:19:43 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,6 @@ SRC_NAME = main.c \
 		   win_img.c \
 		   mlx_fnct1.c \
 		   mlx_fnct2.c \
-		   vector_fnct1.c \
-		   vector_fnct2.c \
-		   vector_fnct3.c \
-		   matrix_fnct1.c \
-		   matrix_fnct2.c \
 		   free_all.c \
 		   debugging.c
 
@@ -68,8 +63,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
 	@make -C ./Libft
+	@make -C ./Mathlibft/
 	@make -C ./minilibx_macos/
-	@$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -I ./$(HEAD) $(MLX) $^ -o $@
+	@$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -LMathlibft -lmathft -I ./$(HEAD) $(MLX) $^ -o $@
 	@$(ECHO) "$(C_GREEN)FDF compilation done.$(C_NONE)"
 
 $(OBJ)%.o: $(SRC)%.c
@@ -78,11 +74,13 @@ $(OBJ)%.o: $(SRC)%.c
 clean:
 	@-/bin/rm -f $(OBJ_NAME)
 	@make -C ./Libft clean
+	@make -C ./Mathlibft/ clean
 	@$(ECHO) "$(C_GREEN)FDF clean done.$(C_NONE)"
 
 fclean: clean
 	@-/bin/rm -f $(NAME)
 	@make -C ./Libft fclean
+	@make -C ./Mathlibft/ fclean
 	@$(ECHO) "$(C_GREEN)FDF fclean done.$(C_NONE)"
 
 re: fclean
