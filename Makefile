@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/24 15:15:48 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/24 15:48:04 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,9 +63,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
 	@make -C ./Libft
-	@make -C ./Mathlibft/
+	@make -C ./Libmathft
 	@make -C ./minilibx_macos/
-	@$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -LMathlibft -lmathft -I ./$(HEAD) $(MLX) $^ -o $@
+	@$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -LLibmathft -lmathft -I ./$(HEAD) $(MLX) $^ -o $@
 	@$(ECHO) "$(C_GREEN)FDF compilation done.$(C_NONE)"
 
 $(OBJ)%.o: $(SRC)%.c
@@ -74,13 +74,13 @@ $(OBJ)%.o: $(SRC)%.c
 clean:
 	@-/bin/rm -f $(OBJ_NAME)
 	@make -C ./Libft clean
-	@make -C ./Mathlibft/ clean
+	@make -C ./Libmathft clean
 	@$(ECHO) "$(C_GREEN)FDF clean done.$(C_NONE)"
 
 fclean: clean
 	@-/bin/rm -f $(NAME)
 	@make -C ./Libft fclean
-	@make -C ./Mathlibft/ fclean
+	@make -C ./Libmathft/ fclean
 	@$(ECHO) "$(C_GREEN)FDF fclean done.$(C_NONE)"
 
 re: fclean

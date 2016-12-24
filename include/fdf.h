@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 19:08:45 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/24 15:52:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "minilibx_macos/mlx.h"
 # include "Libft/libft.h"
-# include "Mathlibft/mathlibft.h"
+# include "Libmathft/libmathft.h"
 # include "keycode_mac.h"
 # include "colors.h"
 # include <fcntl.h>
