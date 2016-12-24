@@ -1,6 +1,0 @@
-[submodule "Libft"]
-	path = Libft
-	url = https://github.com/JanWalsh91/Libft.git
-[submodule "Mathlib"]
-	path = Mathlibft
-	url = https://github.com/JanWalsh91/Mathlibft.git
