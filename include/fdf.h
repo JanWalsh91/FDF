@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 14:49:53 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 15:29:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define FDF_H
 
 # include "minilibx_macos/mlx.h"
-# include "Libft/libft.h"
-# include "Libmathft/libmathft.h"
+# include "../Libft/libft.h"
+# include "../Libmathft/libmathft.h"
 # include "keycode_mac.h"
 # include "colors.h"
 # include <fcntl.h>
 # include <errno.h>
-# include <stdio.h>
+//# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>

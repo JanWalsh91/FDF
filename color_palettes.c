@@ -6,24 +6,24 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 14:43:00 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 15:28:37 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
-void static	set_palette(t_data *d, int i, int *p);
-void static	set_palette_arrays(int ***p);
+void static		set_palette(t_data *d, int i, int *p);
+void static		set_palette_arrays(int ***p);
 
 /*
 ** Allocates memory to 4 or 5 2D lists for the colors of each point.
 ** Sets the colors of the last 4 2D lists based on predefined color values.
 */
 
-int		init_colors(t_data *d)
+int				init_colors(t_data *d)
 {
 	int		i;
-	t_pt2	 p;
+	t_pt2	p;
 
 	if (!(d->colors = (int ***)malloc(sizeof(int **) * (4 + d->color_input))))
 		return (return_error());
@@ -51,11 +51,11 @@ int		init_colors(t_data *d)
 ** Sets up the other color palettes as defined in the header.
 */
 
-int		init_set_palettes(t_data *d)
+int				init_set_palettes(t_data *d)
 {
 	int	**palettes;
 	int	y;
-	int i;
+	int	i;
 
 	y = -1;
 	if (!(palettes = (int **)malloc(sizeof(int *) * 4)))
@@ -76,7 +76,7 @@ int		init_set_palettes(t_data *d)
 	return (1);
 }
 
-void static set_palette(t_data *d, int num, int *p)
+void static		set_palette(t_data *d, int num, int *p)
 {
 	float	height;
 	t_pt2	i;
@@ -97,14 +97,13 @@ void static set_palette(t_data *d, int num, int *p)
 				d->colors[num][i.y][i.x] = p[2];
 			else if (d->pts_3d[i.y][i.x].z <= (height))
 				d->colors[num][i.y][i.x] = p[3];
-			//(d->pts_3d[i.y][i.x].z < 0) ? d->colors[num][i.y][i.x] = 0x0505AA : 0;
 			++i.x;
 		}
 		++i.y;
 	}
 }
 
-void	 static	set_palette_arrays(int ***p)
+void static		set_palette_arrays(int ***p)
 {
 	(*p)[0][0] = P0C0;
 	(*p)[0][1] = P0C1;

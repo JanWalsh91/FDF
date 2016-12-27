@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/16 12:28:08 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 15:18:57 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 15:30:30 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 void static	set_palette(t_data *d, int i, int *p);
 void static	set_palette_arrays(int ***p);

@@ -6,11 +6,11 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:17:49 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 14:40:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 15:24:53 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y);
 
