@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2d_coords.c                                        :+:      :+:    :+:   */
+/*   coords_2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/22 14:31:30 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:31:33 by jwalsh           ###   ########.fr       */
+/*   Created: 2016/12/27 12:28:12 by jwalsh            #+#    #+#             */
+/*   Updated: 2016/12/27 14:27:17 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y);
 ** which is initally set to 1.
 */
 
-int		init_get_pts_2d(t_data *data)
+int			init_get_pts_2d(t_data *data)
 {
 	int	y;
 	int	x;
@@ -48,7 +48,7 @@ int		init_get_pts_2d(t_data *data)
 ** the values by unit_size.
 */
 
-void	update_2d_coords(t_data *d)
+void		update_2d_coords(t_data *d)
 {
 	int	y;
 	int	x;

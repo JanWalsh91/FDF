@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 12:40:37 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 11:47:40 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 12:58:43 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	get_d2(t_data *d)
 
 /*
 ** Gets the center of the canvas, which is the reference point from which
-** the 2d cords are calucalted. 
+** the 2d cords are calucalted.
 */
 
 void	get_center(t_data *d)

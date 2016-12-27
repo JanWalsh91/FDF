@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:01:12 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 12:08:32 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:36:26 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 static int	check_line(char *line, t_data *d);
 static int	too_small(t_data *d);
 
-int	read_file(char *input, t_data *d)
+int			read_file(char *input, t_data *d)
 {
 	int		fd;
 	char	*line;
@@ -48,7 +48,7 @@ int	read_file(char *input, t_data *d)
 	close(fd);
 	if (ret == -1)
 		return (return_error());
-	return (too_small(d) ? ft_error("Less than 2 points in file") : 1);
+	return (too_small(d) ? ft_error("Not enough points in file") : 1);
 }
 
 /*
@@ -87,7 +87,7 @@ static int	check_line(char *line, t_data *d)
 ** Checks if there are less than 2 points.
 */
 
-static int too_small(t_data *d)
+static int	too_small(t_data *d)
 {
 	if (!d->s || (d->ref.x == 1 && d->ref.y == 1))
 		return (1);

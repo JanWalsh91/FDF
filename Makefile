@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/24 15:48:04 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/27 14:50:04 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC_NAME = main.c \
 		   fdf.c \
 		   read_file.c \
 		   set_data.c \
-		   2d_coords.c \
+		   coords_2d.c \
 		   mpts_3d.c \
 		   instructions.c \
 		   colors.c \
@@ -25,8 +25,7 @@ SRC_NAME = main.c \
 		   win_img.c \
 		   mlx_fnct1.c \
 		   mlx_fnct2.c \
-		   free_all.c \
-		   debugging.c
+		   free_all.c
 
 NAME = fdf
 

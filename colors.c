@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:48 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 11:52:47 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 12:28:57 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	get_hex_value(char c)
 	if (ft_isdigit(c))
 		i = c - '0';
 	else if ('A' <= c && c <= 'F')
-		i = c -'A' + 10;
+		i = c - 'A' + 10;
 	else
 		i = 0;
 	return (i);

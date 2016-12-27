@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:23:51 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 18:58:28 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:39:47 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 ** the program.
 */
 
-void	set_default_values(t_data *d, t_env *e, int f_c, char **f_n, int i)
+void	set_default_values(t_all *a, int f_c, char **f_n, int i)
 {
-	d->file_count = f_c;
-	d->file_names = f_n;
-	d->file_index = i;
-	d->color_input = 0;
-	d->c = 0;
-	d->s = NULL;
-	d->unit_size = 1;
-	d->zoom = 0;
-	d->ref.x = 0;
-	d->ref.y = 0;
-	d->matrix = new_identity_matrix4();
-	d->z_matrix = new_identity_matrix4();
-	reset_d3(&(d->d3));
-	reset_d2(&(d->d2));
-	reset_img_pos(&(e->img.pos));
-	reset_center(&(d->center));
+	a->d.file_count = f_c;
+	a->d.file_names = f_n;
+	a->d.file_index = i;
+	a->d.color_input = 0;
+	a->d.c = 0;
+	a->d.s = NULL;
+	a->d.unit_size = 1;
+	a->d.zoom = 0;
+	a->d.ref.x = 0;
+	a->d.ref.y = 0;
+	a->d.matrix = new_identity_matrix4();
+	a->d.z_matrix = new_identity_matrix4();
+	reset_d3(&(a->d.d3));
+	reset_d2(&(a->d.d2));
+	reset_img_pos(&(a->e.img.pos));
+	reset_center(&(a->d.center));
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:08:38 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 12:00:06 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:40:06 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	my_mouse_hook(int button, int x, int y, t_all *a);
 ** Initilizes MLX and calls on the first file to be prepared.
 */
 
-int		fdf(int file_count, char **file_names)
+int			fdf(int file_count, char **file_names)
 {
 	void	*mlx;
 
@@ -37,10 +37,10 @@ int		fdf(int file_count, char **file_names)
 
 static int	next_file(void *mlx, int file_count, char **file_names, int i)
 {
-	t_all		a;
-	
+	t_all	a;
+
 	a.e.mlx = mlx;
-	set_default_values(&a.d, &a.e, file_count, file_names, i);
+	set_default_values(&a, file_count, file_names, i);
 	if (!read_file(file_names[i], &a.d) || !init_set_data(&a.d))
 	{
 		exit(0);

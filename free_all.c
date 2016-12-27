@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 13:05:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 15:26:30 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:30:02 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void		free_matrix(t_matrix4 *m)
 	*m = NULL;
 }
 
-
 static void	free_vec2_list(t_vec2 ***v, t_pt2 ref)
 {
 	int	y;
@@ -51,7 +50,6 @@ static void	free_vec2_list(t_vec2 ***v, t_pt2 ref)
 	free(*v);
 	*v = NULL;
 }
-
 
 static void	free_vec3_list(t_vec3 ***v, t_pt2 ref)
 {

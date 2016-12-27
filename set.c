@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 13:17:49 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 13:54:47 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:40:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	get_2d_coords(t_data *d, t_vec2 *p, int x, int y);
 ** which is initally set to 1.
 */
 
-int		init_get_pts_2d(t_data *data)
+int			init_get_pts_2d(t_data *data)
 {
 	int	y;
 	int	x;
@@ -49,7 +49,7 @@ int		init_get_pts_2d(t_data *data)
 ** the values by unit_size.
 */
 
-void	update_2d_coords(t_data *d)
+void		update_2d_coords(t_data *d)
 {
 	int	y;
 	int	x;

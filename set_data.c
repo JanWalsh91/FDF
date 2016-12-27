@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 12:17:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:41:31 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 static int	set_3d_pt(t_data *d, t_pt2 *i);
 static int	init_set_3d_pts(t_data *d);
 
-int	init_set_data(t_data *d)
+int			init_set_data(t_data *d)
 {
 	d->to_free = d->s;
 	if (!init_colors(d) ||
 			!init_set_3d_pts(d) ||
 			!init_set_mpts3d(d) ||
-			!init_get_pts_2d(d) || 
+			!init_get_pts_2d(d) ||
 			!init_set_palettes(d))
 		return (0);
 	get_center(d);
@@ -39,7 +39,7 @@ static int	init_set_3d_pts(t_data *d)
 {
 	t_pt2	j;
 	t_pt2	i;
-	
+
 	i.x = 0;
 	i.y = 0;
 	if (!(d->pts_3d = (t_vec3 **)malloc(sizeof(t_vec3 *) * d->ref.y)))
@@ -73,7 +73,7 @@ static int	set_3d_pt(t_data *d, t_pt2 *i)
 		return (1);
 	d->pts_3d[i->y][i->x].x = i->x;
 	d->pts_3d[i->y][i->x].y = i->y;
-	if (ft_isdigit(*d->s) || *d->s == '-' || *d->s == ',')
+	if (ft_isdigit(*d->s) || *d->s == '-' || *d->s == ',' || *d->s == ' ')
 		d->pts_3d[i->y][i->x].z = ft_atoi(d->s);
 	else
 		return (ft_error("Invalid coordinate value"));
@@ -93,7 +93,7 @@ static int	set_3d_pt(t_data *d, t_pt2 *i)
 ** or 3D list.
 */
 
-void	increment_index(int *x, int *y, t_data *data)
+void		increment_index(int *x, int *y, t_data *data)
 {
 	(*x)++;
 	if (*x == data->ref.x)

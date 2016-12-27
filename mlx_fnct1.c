@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 17:40:03 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 18:57:58 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:30:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	update_img_pos_y(int i, t_env *e)
 {
 	mlx_clear_window(e->mlx, e->win.mlx);
-	e->img.pos.y += i ;
+	e->img.pos.y += i;
 	mlx_put_image_to_window(e->mlx, e->win.mlx, e->img.mlx, e->img.pos.x,
 			e->img.pos.y);
 }

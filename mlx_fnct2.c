@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:43:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 19:20:33 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 14:36:05 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	update_z_coord(int i, t_env *e, t_data *d)
 {
-	t_pt2		old;
+	t_pt2	old;
 
 	if (e->img.pos.y > -10000 && e->img.pos.x > -5000 && e->img.pos.x < 5000)
 		d->z_matrix[2][2] *= (i > 0) ? 1.5 : 1 / 1.5;
@@ -46,7 +46,7 @@ void	update_z_coord(int i, t_env *e, t_data *d)
 void	rotate(char c, int i, t_env *e, t_data *d)
 {
 	t_matrix4	new;
-	t_pt2	old;
+	t_pt2		old;
 
 	new = new_rotation_matrix4(5 * i, c);
 	d->matrix = matrix4_product(d->matrix, new);
@@ -78,7 +78,7 @@ void	update_colors(t_data *d, t_env *e)
 	update_image(d, e);
 }
 
-int	red_button_exit(int k, t_all *a)
+int		red_button_exit(int k, t_all *a)
 {
 	a = NULL;
 	k = 0;
