@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 14:11:00 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 15:26:35 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 12:17:36 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,15 @@ static int	set_3d_pt(t_data *d, t_pt2 *i)
 		return (1);
 	d->pts_3d[i->y][i->x].x = i->x;
 	d->pts_3d[i->y][i->x].y = i->y;
-	d->pts_3d[i->y][i->x].z = ft_atoi(d->s);
+	if (ft_isdigit(*d->s) || *d->s == '-' || *d->s == ',')
+		d->pts_3d[i->y][i->x].z = ft_atoi(d->s);
+	else
+		return (ft_error("Invalid coordinate value"));
 	while (*d->s == '-' || ft_isdigit(*d->s))
 		++d->s;
 	if (*d->s == ',')
-		if (0 > (d->colors[0][i->y][i->x] = set_color(&d->s)))
-			return (0);
+		if ((d->colors[0][i->y][i->x] = set_color(&d->s)) == -1)
+			return (ft_error("Color incorrectly formatted"));
 	while (*d->s == 32 || *d->s == '\n')
 		++d->s;
 	increment_index(&i->x, &i->y, d);

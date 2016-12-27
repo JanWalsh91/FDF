@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/24 15:52:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/26 14:17:55 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@
 # include <stdlib.h>
 # include <math.h>
 
-/*
-** Recommended window max size: (w, h) (2400, 1300)
-*/
-
 # define USAGE "usage: ./fdf <file1> <file2> ..."
 # define MAX_WIN_W 2400
 # define MAX_WIN_H 1300
 # define MIN_WIN_W 400
 # define MIN_WIN_H 200
 # define MAX_UNIT_SIZE 50
-# define FRAME_WIDTH 2 //number of unit_size wide.
+# define FRAME_WIDTH 2
 # define FLT_MIN 1.175494e-38
 # define FLT_MAX 3.402823e+38
+# define KEYPRESS 2
+# define KEYRELEASE 3
+# define KEYPRESSMASK (1L<<0)
+# define KEYRELEASEMASK (1L<<1)
 
 /*
 ** Colors for 4 sets.
@@ -79,17 +79,6 @@
 # define LINE9 ">          : next file"
 # define LINE10 "<          : previous file"
 # define LINE11 "esc        : quit"
-
-# define KEYPRESS 2
-# define KEYRELEASE 3
-# define KEYPRESSMASK (1L<<0)
-# define KEYRELEASEMASK (1L<<1)
-
-typedef struct	s_pt2
-{
-	int			x;
-	int			y;
-}				t_pt2;
 
 typedef struct	s_incr
 {
@@ -246,12 +235,6 @@ int		red_button_exit(int k, t_all *a);
 void	draw_image(t_data *data, t_env *e);
 void	draw_line(t_env *e, t_vec2 p1, t_vec2 p2, int c1, int c2);
 void	draw_pixel(t_env *e, int x, int y, int color);
-
-/*
-** Error handling.
-*/
-
-int		ft_error(char *error_msg);
 
 /*
 ** Debugging ... ///REMOVE///

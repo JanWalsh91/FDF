@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:48 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/22 14:42:46 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 11:52:47 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ int			set_color(char **s)
 
 	(*s)++;
 	if ((*s)[0] != '0' || (*s)[1] != 'x')
-		return (ft_error("Color incorrectly formatted"));
+		return (-1);
 	(*s) += 2;
 	i = 0;
 	while ((*s)[i] && (*s)[i] != ' ' && (*s)[i] != '\n')
 	{
 		if (!((ft_isdigit((*s)[i])) || ('a' <= (*s)[i] && (*s)[i] <= 'f') ||
 					('A' <= (*s)[i] && (*s)[i] <= 'F')))
-			return (ft_error("Color incorrectly formatted"));
+			return (-1);
 		++i;
 	}
 	if (!(tmp = (char *)malloc(sizeof(char) * (i + 1))))

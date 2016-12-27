@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 14:19:53 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/24 16:40:49 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void static set_palette(t_data *d, int num, int *p)
 				d->colors[num][i.y][i.x] = p[2];
 			else if (d->pts_3d[i.y][i.x].z <= (height))
 				d->colors[num][i.y][i.x] = p[3];
-			(d->pts_3d[i.y][i.x].z < 0) ? d->colors[num][i.y][i.x] = 0x0505AA : 0;
+			//(d->pts_3d[i.y][i.x].z < 0) ? d->colors[num][i.y][i.x] = 0x0505AA : 0;
 			++i.x;
 		}
 		++i.y;
