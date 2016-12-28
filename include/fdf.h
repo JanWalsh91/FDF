@@ -6,7 +6,7 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 15:29:36 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/28 11:42:05 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include "colors.h"
 # include <fcntl.h>
 # include <errno.h>
-//# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>

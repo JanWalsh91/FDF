@@ -6,14 +6,14 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 17:19:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 15:28:37 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/27 16:21:39 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fdf.h"
 
-void static		set_palette(t_data *d, int i, int *p);
-void static		set_palette_arrays(int ***p);
+static void		set_palette(t_data *d, int i, int *p);
+static void		set_palette_arrays(int ***p);
 
 /*
 ** Allocates memory to 4 or 5 2D lists for the colors of each point.
@@ -76,7 +76,7 @@ int				init_set_palettes(t_data *d)
 	return (1);
 }
 
-void static		set_palette(t_data *d, int num, int *p)
+static void		set_palette(t_data *d, int num, int *p)
 {
 	float	height;
 	t_pt2	i;
@@ -103,7 +103,7 @@ void static		set_palette(t_data *d, int num, int *p)
 	}
 }
 
-void static		set_palette_arrays(int ***p)
+static void		set_palette_arrays(int ***p)
 {
 	(*p)[0][0] = P0C0;
 	(*p)[0][1] = P0C1;
