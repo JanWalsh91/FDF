@@ -6,14 +6,14 @@
 /*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/28 11:42:05 by jwalsh           ###   ########.fr       */
+/*   Updated: 2016/12/28 12:42:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "minilibx_macos/mlx.h"
+# include "mlx.h"
 # include "../Libft/libft.h"
 # include "../Libmathft/libmathft.h"
 # include "keycode_mac.h"

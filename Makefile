@@ -6,7 +6,7 @@
 #    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/28 11:54:01 by jwalsh           ###   ########.fr        #
+#    Updated: 2016/12/28 12:48:40 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,6 @@ all: $(NAME)
 $(NAME): $(OBJ_NAME)
 	@make -C ./Libft
 	@make -C ./Libmathft
-	@make -C ./minilibx_macos/
 	@$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -LLibmathft -lmathft -I ./$(HEAD) $(MLX) $^ -o $@
 	@$(ECHO) "$(C_GREEN)FDF compilation done.$(C_NONE)"
 
