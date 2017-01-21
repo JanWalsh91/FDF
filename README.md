@@ -6,8 +6,9 @@ Covered concepts:
 - using a graphics library
 - handling windows and images
 - handling the user's keyboard and mouse inputs
+- line rasterization
 - creating a basic GUI
-- using matrices for rotations!
+- using matrices for rotations and other transormations!
 - creating an isometric porjection
 - working with RGB
 - banishing segfaults and memory leaks to the nether
