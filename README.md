@@ -1,6 +1,6 @@
 # FDF
 
-FDF - making elvations maps more beautiful that ever
+FDF - making elevations maps more beautiful that ever
 
 Covered concepts:
 - using a graphics library
