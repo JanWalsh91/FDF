@@ -13,6 +13,22 @@ Covered concepts:
 - working with RGB
 - banishing segfaults and memory leaks to the nether
 
-FDF (Fil de fer, or wirefram) is ...
+FDF (Fil de fer, or wirefram) is takes a file which may look like this:
+
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  3  3  0  0  3  3  0  0  0  3  3  3  3  3  0  0  0
+0  0  3  3  0  0  3  3  0  0  0  0  0  0  0  3  3  0  0
+0  0  3  3  0  0  3  3  0  0  0  0  0  0  0  3  3  0  0
+0  0  3  3  3  3  3  3  0  0  0  0  3  3  3  3  0  0  0
+0  0  0  3  3  3  3  3  0  0  0  3  3  0  0  0  0  0  0
+0  0  0  0  0  0  3  3  0  0  0  3  3  0  0  0  0  0  0
+0  0  0  0  0  0  3  3  0  0  0  3  3  3  3  3  3  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+
+Each number represents the height coordinate of a point at the 2D position in the table. Our task was to translate this into a visual height map. The map above produced the following output:
+
+[42 with instructions](https://raw.githubusercontent.com/JanWalsh91/FDF/master/screenshots/42\ with\ instructions.png)
 
 Should you have any questions or suggestions, feel free to send me an email at **jwalsh@student.42.fr**.
