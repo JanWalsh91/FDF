@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/12 13:07:31 by jwalsh            #+#    #+#              #
-#    Updated: 2016/12/31 17:20:17 by jwalsh           ###   ########.fr        #
+#    Updated: 2017/06/27 13:52:45 by jwalsh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,11 @@ SRC_NAME = main.c \
 		   mlx_fnct2.c \
 		   free_all.c
 
+SRC_PATH = src/
+
 NAME = fdf
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
+OBJ_NAME = $(addprefix $(SRC_PATH), $(SRC_NAME:.c=.o))
 
 HEAD = include/
 
