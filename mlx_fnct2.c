@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_fnct2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 17:43:44 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/18 15:55:22 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/06/27 13:38:58 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	update_z_coord(int i, t_env *e, t_data *d)
 
 void	rotate(char c, int i, t_env *e, t_data *d)
 {
-	t_matrix4	new;
+	t_matrix	new;
 	t_pt2		old;
 
-	new = new_rotation_matrix4(5 * i, c);
-	d->matrix = matrix4_product(d->matrix, new);
+	new = m_new_rotate(5.0 * (float)i, c);
+	d->matrix = m_mult(d->matrix, new);
 	update_mpts3d(d);
 	get_center(d);
 	update_2d_coords(d);

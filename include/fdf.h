@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 13:28:25 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/11 16:10:16 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/06/27 13:25:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "mlx.h"
 # include "../Libft/libft.h"
-# include "../Libmathft/libmathft.h"
+# include "../Libmathft/inc/libmathft.h"
 # include "keycode_mac.h"
 # include "colors.h"
 # include <fcntl.h>
@@ -133,8 +133,8 @@ typedef struct		s_data
 	char			*s;
 	t_pt2			ref;
 	t_vec3			**pts_3d;
-	t_matrix4		matrix;
-	t_matrix4		z_matrix;
+	t_matrix		matrix;
+	t_matrix		z_matrix;
 	t_vec3			**mpts_3d;
 	t_vec2			**pts_2d;
 	int				***colors;
@@ -192,7 +192,7 @@ void				reset_d2(t_d2 *d2);
 void				reset_center(t_vec2 *center);
 void				reset_img_pos(t_pt2 *pos);
 void				free_all(t_all *a);
-void				free_matrix(t_matrix4 *m);
+void				free_matrix(t_matrix *m);
 
 /*
 ** Get functions.

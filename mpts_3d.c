@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mpts_3d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 14:32:13 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/23 19:14:30 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/06/27 13:29:23 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		init_set_mpts3d(t_data *d)
 		i.x = 0;
 		while (i.x < d->ref.x)
 		{
-			d->mpts_3d[i.y][i.x] = vec3_matrix4_product(d->pts_3d[i.y][i.x],
+			d->mpts_3d[i.y][i.x] = m_v_mult(d->pts_3d[i.y][i.x],
 			d->matrix);
 			++i.x;
 		}
@@ -38,17 +38,17 @@ int		init_set_mpts3d(t_data *d)
 void	update_mpts3d(t_data *d)
 {
 	t_pt2		i;
-	t_matrix4	new;
+	t_matrix	new;
 
-	new = new_identity_matrix4();
-	new = matrix4_product(d->z_matrix, d->matrix);
+	new = m_new_identity();
+	new = m_mult(d->z_matrix, d->matrix);
 	i.y = 0;
 	while (i.y < d->ref.y)
 	{
 		i.x = 0;
 		while (i.x < d->ref.x)
 		{
-			d->mpts_3d[i.y][i.x] = vec3_matrix4_product(d->pts_3d[i.y][i.x],
+			d->mpts_3d[i.y][i.x] = m_v_mult(d->pts_3d[i.y][i.x],
 			new);
 			++i.x;
 		}

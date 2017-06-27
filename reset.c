@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 14:23:51 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 14:39:47 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/06/27 13:27:39 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	set_default_values(t_all *a, int f_c, char **f_n, int i)
 	a->d.zoom = 0;
 	a->d.ref.x = 0;
 	a->d.ref.y = 0;
-	a->d.matrix = new_identity_matrix4();
-	a->d.z_matrix = new_identity_matrix4();
+	a->d.matrix = m_new_identity();
+	a->d.z_matrix = m_new_identity();
 	reset_d3(&(a->d.d3));
 	reset_d2(&(a->d.d2));
 	reset_img_pos(&(a->e.img.pos));

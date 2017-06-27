@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_fnct1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 17:40:03 by jwalsh            #+#    #+#             */
-/*   Updated: 2017/01/25 10:43:26 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/06/27 13:27:39 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	recenter(t_env *e, t_data *d)
 	e->img.pos.y = 0;
 	free_matrix(&d->matrix);
 	free_matrix(&d->z_matrix);
-	d->z_matrix = new_identity_matrix4();
-	d->matrix = new_identity_matrix4();
+	d->z_matrix = m_new_identity();
+	d->matrix = m_new_identity();
 	update_mpts3d(d);
 	get_center(d);
 	update_2d_coords(d);

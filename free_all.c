@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwalsh <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jwalsh <jwalsh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 13:05:26 by jwalsh            #+#    #+#             */
-/*   Updated: 2016/12/27 14:30:02 by jwalsh           ###   ########.fr       */
+/*   Updated: 2017/06/27 13:25:10 by jwalsh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void		free_all(t_all *a)
 	free_colors(&a->d.colors, a->d.ref, a->d.color_input);
 }
 
-void		free_matrix(t_matrix4 *m)
+void		free_matrix(t_matrix *m)
 {
 	int	y;
 
