@@ -29,6 +29,6 @@ FDF (Fil de fer, or wirefram) is takes a file which may look like this:
 
 Each number represents the height coordinate of a point at the 2D position in the table. Our task was to translate this into a visual height map. The map above produced the following output:
 
-![42 with instructions](https://raw.githubusercontent.com/JanWalsh91/FDF/tree/master/screenshots/42_with_instruction.png)
+![42 with instructions](https://github.com/JanWalsh91/FDF/blob/master/screenshots/42_with_instruction.png "42 with instructions")
 
 Should you have any questions or suggestions, feel free to send me an email at **jwalsh@student.42.fr**.
