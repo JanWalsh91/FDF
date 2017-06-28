@@ -53,7 +53,7 @@ You can rotate about each axis, translate and scale the map:
 Here are some more screenshots:
 
 ![Mars Elevation Map](https://github.com/JanWalsh91/FDF/blob/master/screenshots/Mars.png "Mars Elevation Map")
-![Julia Factal](https://github.com/JanWalsh91/FDF/blob/master/screenshots/Julia_Factal.png "Julia Factal")
+![Julia Factal](https://github.com/JanWalsh91/FDF/blob/master/screenshots/Julia_Fractal.png "Julia Factal")
 
 
 Should you have any questions or suggestions, feel free to send me an email at **jwalsh@student.42.fr**.
