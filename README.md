@@ -13,7 +13,7 @@ Covered concepts:
 - working with RGB
 - banishing segfaults and memory leaks to the nether
 
-FDF (Fil de fer, or wirefram) is takes a file which may look like this:
+FDF (Fil de fer, or wirefram) takes a file which may look like this:
 
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 
